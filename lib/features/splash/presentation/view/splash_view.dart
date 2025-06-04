@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_adaptive_ui/core/constants/constants.dart';
-import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
+import 'package:responsive_adaptive_ui/features/splash/presentation/widgets/splash_desktop_view.dart';
+import 'package:responsive_adaptive_ui/features/splash/presentation/widgets/splash_tablet_view.dart';
+import 'package:responsive_adaptive_ui/features/splash/presentation/widgets/splash_view_body.dart';
 
 import '../../../../core/cache/cache_helper.dart';
-import '../widgets/splash_view_body.dart';
+import '../../../../core/constants/constants.dart';
+import '../../../../core/layout_builder/layout_builder.dart';
+import '../../../../core/routes_manager/routes.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -21,10 +24,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: primaryColor,
-      body: SplashViewBody(),
-    );
+    return Scaffold(
+        backgroundColor: primaryColor,
+        body: AdaptiveLayout(
+          mobileLayout: (context) => SplashViewBody(),
+          tabletLayout: (context) => SplashTabletView(),
+          desktopLayout: (context) => SplashDesktopView(),
+        ));
   }
 }
 
@@ -34,12 +40,12 @@ void executeNavigation(BuildContext context) async {
   Future.delayed(
     Duration(seconds: 2),
     () {
-      // Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
-      if (isSecondTime == true && isSecondTime != null) {
-        return Navigator.pushReplacementNamed(context, Routes.authRoute);
-      } else if (isSecondTime == null) {
-        Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
-      }
+      Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      // if (isSecondTime == true && isSecondTime != null) {
+      //   return Navigator.pushReplacementNamed(context, Routes.authRoute);
+      // } else if (isSecondTime == null) {
+      //   Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      // }
     },
   );
 }

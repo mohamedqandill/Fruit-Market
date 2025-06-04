@@ -5,13 +5,19 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Spacer(),
-        Image.asset("assets/images/fruitsplash.png"),
+        Image.asset(
+          "assets/images/fruitsplash.png",
+        ),
         Spacer(),
-        Image.asset("assets/images/fruitBottom.png"),
+        Image.asset(
+          "assets/images/fruitBottom.png",
+        ),
       ],
     );
   }
