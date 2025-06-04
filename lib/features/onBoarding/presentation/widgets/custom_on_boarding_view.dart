@@ -107,8 +107,6 @@ class _CustomOnBoardingViewState extends State<CustomOnBoardingView> {
           Custombutton(
             title:
                 currentPage == 0 || currentPage == 1 ? "Next" : "Get Started",
-            width: width * widget.buttonWidth,
-            height: height * widget.buttonHeight,
             onPressed: () async {
               if (currentPage < 2) {
                 pageController.nextPage(

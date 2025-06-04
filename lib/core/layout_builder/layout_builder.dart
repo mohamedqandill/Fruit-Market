@@ -21,16 +21,15 @@ class AdaptiveLayout extends StatelessWidget {
         final shortestSide = size.shortestSide;
 
         if (shortestSide < 600) {
-          // ده موبايل حقيقي
           if (isLandscape) {
-            return landScapeLayout(context); // ✅ موبايل landscape
+            return landScapeLayout(context);
           } else {
-            return mobileLayout(context); // ✅ موبايل portrait
+            return mobileLayout(context);
           }
         } else if (constraints.maxWidth >= 600 && constraints.maxWidth < 900) {
-          return tabletLayout(context); // ✅ تابلت
+          return tabletLayout(context);
         } else {
-          return desktopLayout(context); // ✅ ديسكتوب
+          return desktopLayout(context);
         }
       },
     );

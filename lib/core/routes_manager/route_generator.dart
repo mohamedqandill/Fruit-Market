@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
+import 'package:responsive_adaptive_ui/features/auth/presentation/view/forget_password_screen.dart';
+import 'package:responsive_adaptive_ui/features/auth/presentation/view/otp_screen.dart';
 import 'package:responsive_adaptive_ui/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:responsive_adaptive_ui/features/splash/presentation/view/splash_view.dart';
 
 import '../../features/auth/presentation/view/auth_screen.dart';
+import '../../features/auth/presentation/view/sign_in_screen.dart';
+import '../../features/auth/presentation/view/sign_up_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.otpRoute:
+        return MaterialPageRoute(builder: (_) => const OtpScreen());
+      case Routes.forgetPasswordRoute:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routes.signupRoute:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case Routes.signInRoute:
+        return MaterialPageRoute(builder: (_) => const SignInScreen());
       case Routes.authRoute:
-        return MaterialPageRoute(builder: (_) => AuthScreen());
+        return MaterialPageRoute(builder: (_) => const AuthScreen());
       case Routes.splashRoute:
-        return MaterialPageRoute(builder: (_) => SplashView());
+        return MaterialPageRoute(builder: (_) => const SplashView());
       case Routes.onBoardingRoute:
-        return MaterialPageRoute(builder: (_) => OnBoardingView());
+        return MaterialPageRoute(builder: (_) => const OnBoardingView());
 
       default:
         return unDefinedRoute();

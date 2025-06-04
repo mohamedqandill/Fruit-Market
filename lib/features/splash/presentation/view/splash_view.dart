@@ -42,12 +42,12 @@ void executeNavigation(BuildContext context) async {
   Future.delayed(
     Duration(seconds: 2),
     () {
-      Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
-      // if (isSecondTime == true && isSecondTime != null) {
-      //   return Navigator.pushReplacementNamed(context, Routes.authRoute);
-      // } else if (isSecondTime == null) {
-      //   Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
-      // }
+      // Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      if (isSecondTime == true && isSecondTime != null) {
+        return Navigator.pushReplacementNamed(context, Routes.authRoute);
+      } else if (isSecondTime == null) {
+        Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
+      }
     },
   );
 }
