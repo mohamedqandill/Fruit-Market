@@ -12,17 +12,15 @@ class PageViewItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset("assets/images/delivery.png"),
+        Flexible(child: Image.asset("assets/images/delivery.png")),
         SizedBox(
-          height: height * 0.05,
+          height: height * 0.0,
         ),
         Text(
           title,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
-        SizedBox(
-          height: height * 0.03,
-        ),
+        SizedBox(height: height * 0.0),
         Text(
           subTitle,
           style: TextStyle(fontSize: 16),

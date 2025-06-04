@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SplashTabletView extends StatelessWidget {
-  const SplashTabletView({
-    super.key,
-  });
+class SplashLandScapeView extends StatelessWidget {
+  const SplashLandScapeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +13,11 @@ class SplashTabletView extends StatelessWidget {
         Spacer(),
         Center(
             child: Image.asset("assets/images/fruitsplash.png",
-                width: width * 0.5)),
+                width: width * 0.3)),
         Spacer(),
         Image.asset(
           "assets/images/fruitBottom.png",
-          width: width * 0.5,
+          width: width * 0.3,
         ),
       ],
     );

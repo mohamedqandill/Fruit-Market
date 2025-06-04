@@ -15,6 +15,12 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: AdaptiveLayout(
+      landScapeLayout: (context) => const CustomOnBoardingView(
+        firstBoxHeight: 0.02,
+        secondBoxHeight: 0.03,
+        buttonWidth: 0.2,
+        dividerIndent: 0.928,
+      ),
       mobileLayout: (context) => const CustomOnBoardingView(),
       tabletLayout: (context) => const CustomOnBoardingView(
         buttonWidth: 0.3,

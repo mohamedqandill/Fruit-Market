@@ -7,6 +7,7 @@ import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/layout_builder/layout_builder.dart';
 import '../../../../core/routes_manager/routes.dart';
+import '../widgets/splash_landscape_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -27,9 +28,10 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
         backgroundColor: primaryColor,
         body: AdaptiveLayout(
-          mobileLayout: (context) => SplashViewBody(),
-          tabletLayout: (context) => SplashTabletView(),
-          desktopLayout: (context) => SplashDesktopView(),
+          landScapeLayout: (context) => const SplashLandScapeView(),
+          mobileLayout: (context) => const SplashViewBody(),
+          tabletLayout: (context) => const SplashTabletView(),
+          desktopLayout: (context) => const SplashDesktopView(),
         ));
   }
 }
