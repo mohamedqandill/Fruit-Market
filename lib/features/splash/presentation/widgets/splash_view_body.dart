@@ -10,11 +10,11 @@ class SplashViewBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Spacer(),
+        const Spacer(),
         Image.asset(
           "assets/images/fruitsplash.png",
         ),
-        Spacer(),
+        const Spacer(),
         Image.asset(
           "assets/images/fruitBottom.png",
         ),

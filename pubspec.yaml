@@ -40,6 +40,7 @@ dependencies:
   shared_preferences: ^2.5.3
   intl_phone_field:
   flutter_otp_text_field:
+  salomon_bottom_bar:
 
 dev_dependencies:
   flutter_test:

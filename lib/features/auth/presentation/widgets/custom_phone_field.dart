@@ -27,8 +27,8 @@ class CustomPhoneField extends StatelessWidget {
     return Center(
       child: Container(
         width: maxWidth,
-        padding:
-            EdgeInsets.symmetric(horizontal: isLandscape ? width * 0.12 : 16),
+        padding: EdgeInsets.symmetric(
+            horizontal: isLandscape && shortSide < 600 ? width * 0.12 : 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

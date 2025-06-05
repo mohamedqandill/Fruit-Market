@@ -12,8 +12,6 @@ class AuthViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
-    var shortSide = MediaQuery.sizeOf(context).shortestSide;
-    var width = MediaQuery.sizeOf(context).width;
 
     return SingleChildScrollView(
       child: Padding(
@@ -81,7 +79,7 @@ num calculateWidthFraction(BuildContext context, BoxConstraints constraints) {
     } else {
       return widthFraction = 0.8;
     }
-  } else if (constraints.maxWidth >= 600 && constraints.maxWidth < 900) {
+  } else if (shortestSide >= 600 && shortestSide < 900) {
     return widthFraction = 0.5;
   } else {
     return widthFraction = 0.4;

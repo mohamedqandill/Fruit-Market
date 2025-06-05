@@ -15,7 +15,7 @@ class CustomField extends StatelessWidget {
 
     double maxWidth;
     if (shortSide >= 900) {
-      maxWidth = width * 0.1;
+      maxWidth = width * 0.07;
     } else if (shortSide >= 600) {
       maxWidth = width * 0.65;
     } else {
@@ -29,7 +29,8 @@ class CustomField extends StatelessWidget {
     return Center(
       child: Container(
         width: maxWidth,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(
+            horizontal: shortSide >= 900 ? width * 0.2 : 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

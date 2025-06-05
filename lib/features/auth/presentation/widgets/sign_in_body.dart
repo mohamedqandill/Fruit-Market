@@ -22,12 +22,12 @@ class SignInBody extends StatelessWidget {
     if (shortSide >= 900) {
       maxPadding = width * 0.15;
     } else if (shortSide >= 600) {
-      maxPadding = width * 0.16;
+      maxPadding = width * 0.18;
     } else {
       if (isLandscape) {
         maxPadding = width * 0.14;
       } else {
-        maxPadding = width * 0.03;
+        maxPadding = width * 0.038;
       }
     }
 
@@ -88,11 +88,14 @@ class SignInBody extends StatelessWidget {
               Center(
                 child: Custombutton(
                   title: "Login",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, Routes.mainLayoutRoute);
+                  },
                 ),
               ),
               SizedBox(
-                height: height * 0.025,
+                height: height * 0.05,
               ),
               CustomText(
                   firstString: "Don’t have an account? ",

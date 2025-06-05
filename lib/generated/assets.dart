@@ -7,11 +7,18 @@ class Assets {
   static const String fontsArialCEMTBlack = 'assets/fonts/ArialCEMTBlack.ttf';
   static const String fontsArialceb = 'assets/fonts/arialceb.ttf';
   static const String fontsSegoe = 'assets/fonts/Segoe UI Bold.ttf';
+  static const String imagesBasket = 'assets/images/basket.png';
   static const String imagesDelivery = 'assets/images/delivery.png';
   static const String imagesFacebook = 'assets/images/facebook.png';
+  static const String imagesFavourite = 'assets/images/favourite.png';
+  static const String imagesFilter = 'assets/images/filter.png';
   static const String imagesFruit = 'assets/images/Fruit Market.png';
   static const String imagesFruitBottom = 'assets/images/fruitBottom.png';
   static const String imagesFruitsplash = 'assets/images/fruitsplash.png';
   static const String imagesGoogle = 'assets/images/google.png';
+  static const String imagesHome = 'assets/images/home.png';
+  static const String imagesMore = 'assets/images/more.png';
+  static const String imagesOrders = 'assets/images/orders.png';
   static const String imagesPhone = 'assets/images/phone.png';
+  static const String imagesSearch = 'assets/images/search.png';
 }

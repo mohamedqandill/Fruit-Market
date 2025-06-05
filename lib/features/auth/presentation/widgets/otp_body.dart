@@ -48,8 +48,6 @@ class _OtpBodyState extends State<OtpBody> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
-    var width = MediaQuery.sizeOf(context).width;
-    var shortSide = MediaQuery.sizeOf(context).shortestSide;
 
     return SafeArea(
       child: SingleChildScrollView(

@@ -6,4 +6,5 @@ class Routes {
   static const String signupRoute = "signUp";
   static const String forgetPasswordRoute = "forget";
   static const String otpRoute = "otp";
+  static const String mainLayoutRoute = "main";
 }

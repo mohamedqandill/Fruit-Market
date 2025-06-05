@@ -3,6 +3,7 @@ import 'package:responsive_adaptive_ui/core/widgets/customButton.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/widgets/custom_auth_title.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/widgets/custom_text.dart';
 
+import '../../../../core/routes_manager/routes.dart';
 import 'custom_field.dart';
 import 'custom_phone_field.dart';
 
@@ -12,8 +13,6 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
-    var width = MediaQuery.sizeOf(context).width;
-    var shortSide = MediaQuery.sizeOf(context).shortestSide;
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -64,15 +63,19 @@ class SignUpBody extends StatelessWidget {
               Center(
                 child: Custombutton(
                   title: "Sign Up",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signInRoute);
+                  },
                 ),
               ),
               SizedBox(
-                height: height * 0.025,
+                height: height * 0.05,
               ),
               CustomText(
                   firstString: "Already have an account? ",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.signInRoute);
+                  },
                   secondString: "Login")
             ],
           ),
