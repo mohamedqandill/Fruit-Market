@@ -6,6 +6,7 @@ class Custombutton extends StatelessWidget {
   const Custombutton({required this.title, required this.onPressed, super.key});
 
   final String title;
+
   final VoidCallback onPressed;
 
   @override

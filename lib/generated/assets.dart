@@ -2,6 +2,10 @@
 // class Assets {
 //   Assets._();
 //
+//   static const String assetsImagesFrame 2870 = 'assets/images/Frame 2870.svg';
+//   static const String assetsImagesFrame 2871 = 'assets/images/Frame 2871.svg';
+//   static const String assetsImagesFrame 2873 = 'assets/images/Frame 2873.svg';
+//   static const String assetsImagesFrame 2875 = 'assets/images/Frame 2875.svg';
 //   static const String fontsARIALLGT = 'assets/fonts/ARIALLGT.TTF';
 //   static const String fontsArialCE = 'assets/fonts/ArialCE.ttf';
 //   static const String fontsArialCEMTBlack = 'assets/fonts/ArialCEMTBlack.ttf';
@@ -11,12 +15,25 @@
 //   static const String fontsTitilliumWebBlack = 'assets/fonts/TitilliumWeb-Black.ttf';
 //   static const String fontsTitilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
 //   static const String imagesBasket = 'assets/images/basket.png';
+//   static const String imagesCont2 = 'assets/images/cont2.png';
+//   static const String imagesCont3 = 'assets/images/cont3.png';
 //   static const String imagesDelivIcon = 'assets/images/delivIcon.png';
 //   static const String imagesDelivery = 'assets/images/delivery.png';
 //   static const String imagesFacebook = 'assets/images/facebook.png';
 //   static const String imagesFav = 'assets/images/fav.png';
 //   static const String imagesFavourite = 'assets/images/favourite.png';
 //   static const String imagesFilter = 'assets/images/filter.png';
+//   static const String imagesForma 1 = 'assets/images/Forma 1.png';
+//   static const String imagesFrame 1 = 'assets/images/Frame 1.svg';
+//   static const String imagesFrame 2 = 'assets/images/Frame 2.svg';
+//   static const String imagesFrame 2865 = 'assets/images/Frame 2865.png';
+//   static const String imagesFrame 2868 = 'assets/images/Frame 2868.png';
+//   static const String imagesFrame 2869 = 'assets/images/Frame 2869.png';
+//   static const String imagesFrame 2870 = 'assets/images/Frame 2870.png';
+//   static const String imagesFrame 2871 = 'assets/images/Frame 2871.png';
+//   static const String imagesFrame 2873 = 'assets/images/Frame 2873.png';
+//   static const String imagesFrame 2875 = 'assets/images/Frame 2875.png';
+//   static const String imagesFruit = 'assets/images/fruit.png';
 //   static const String imagesFruit Market = 'assets/images/Fruit Market.png';
 //   static const String imagesFruitBottom = 'assets/images/fruitBottom.png';
 //   static const String imagesFruitsplash = 'assets/images/fruitsplash.png';
@@ -30,11 +47,16 @@
 //   static const String imagesHome7 = 'assets/images/home7.png';
 //   static const String imagesHome8 = 'assets/images/home8.png';
 //   static const String imagesHomeFrame = 'assets/images/homeFrame.png';
+//   static const String imagesIphone 1 = 'assets/images/Iphone 1.png';
+//   static const String imagesIphone 15 pro max $1199 copy 1 = 'assets/images/Iphone 15 pro max_ $1199 copy 1.png';
 //   static const String imagesMore = 'assets/images/more.png';
+//   static const String imagesMore2 = 'assets/images/More2.png';
 //   static const String imagesOrders = 'assets/images/orders.png';
 //   static const String imagesPath 144 = 'assets/images/Path 144.png';
 //   static const String imagesPath 218 = 'assets/images/Path 218.png';
+//   static const String imagesPet = 'assets/images/pet.png';
 //   static const String imagesPhone = 'assets/images/phone.png';
 //   static const String imagesSearch = 'assets/images/search.png';
+//   static const String imagesVeg = 'assets/images/veg.png';
 //
 // }

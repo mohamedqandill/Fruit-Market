@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/widgets/custom_container.dart';
 
-import '../../../../../core/widgets/custom_container_title.dart';
+import '../../../../../core/widgets/custom_container_content.dart';
 import '../../../../../core/widgets/custom_fruit_container.dart';
 import '../../../../../core/widgets/custom_inline_text.dart';
 
@@ -19,83 +19,65 @@ class SellerDetailsBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomContainer(
-            widget: Expanded(
-              child: Row(
+            widget: CustomContainerContent(
+              title: "Seller name",
+              secondInRow: Text(
+                " Delivery : 40 to 60 Min",
+                style: TextStyle(fontSize: width * 0.035),
+              ),
+              thirdInRow: Row(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: height * 0.008),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const CustomContainerTitle(
-                          title: "Seller name",
+                  Row(
+                    children: [
+                      Container(
+                        width: 5,
+                        height: 5,
+                        decoration: const BoxDecoration(
+                          color: Colors.grey,
+                          shape: BoxShape.circle,
                         ),
-                        Text(
-                          " Delivery : 40 to 60 Min",
-                          style: TextStyle(fontSize: width * 0.035),
-                        ),
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  width: 5,
-                                  height: 5,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.grey,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                                SizedBox(width: width * 0.02),
-                                Text(
-                                  "Open",
-                                  style: TextStyle(
-                                      fontSize: width * 0.035,
-                                      color: Colors.green),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: width * 0.05,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 5,
-                                  height: 5,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.grey,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                                SizedBox(width: width * 0.02),
-                                Text(
-                                  "4.5",
-                                  style: TextStyle(
-                                      fontSize: width * 0.035,
-                                      color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              width: width * 0.19,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                      ),
+                      SizedBox(width: width * 0.02),
+                      Text(
+                        "Open",
+                        style: TextStyle(
+                            fontSize: width * 0.035, color: Colors.green),
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        bottom: width * 0.15, right: width * 0.02),
-                    child: Image.asset(
-                      "assets/images/Path 144.png",
-                      // width: width * 0.09,
-                    ),
+                  SizedBox(
+                    width: width * 0.05,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        width: 5,
+                        height: 5,
+                        decoration: const BoxDecoration(
+                          color: Colors.grey,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                      SizedBox(width: width * 0.02),
+                      Text(
+                        "4.5",
+                        style: TextStyle(
+                            fontSize: width * 0.035, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: width * 0.19,
                   ),
                 ],
+              ),
+              rightItem: Padding(
+                padding:
+                    EdgeInsets.only(bottom: width * 0.15, right: width * 0.02),
+                child: Image.asset(
+                  "assets/images/Path 144.png",
+                  // width: width * 0.09,
+                ),
               ),
             ),
             onPressed: () {},
@@ -153,59 +135,43 @@ class SellerDetailsBody extends StatelessWidget {
             child: ListView.separated(
                 itemBuilder: (context, index) => CustomContainer(
                       image: "assets/images/Frame 2865.png",
-                      widget: Expanded(
-                        child: Row(
+                      widget: CustomContainerContent(
+                        title: "Product name",
+                        secondInRow: Row(
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(top: height * 0.008),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const CustomContainerTitle(
-                                      title: "Product name"),
-                                  Row(
-                                    children: [
-                                      const Text("12.00 KD"),
-                                      SizedBox(
-                                        width: width * 0.025,
-                                      ),
-                                      Text(
-                                        "14.00 KD",
-                                        style: TextStyle(
-                                            color: Colors.black26,
-                                            decoration:
-                                                TextDecoration.lineThrough,
-                                            fontSize: width * 0.035),
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                    width: width * 0.27,
-                                    height: height * 0.027,
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(width * 0.2),
-                                      color: const Color(0xffDF958F),
-                                    ),
-                                    child: Center(
-                                        child: Text(
-                                      "Up to 10% Off",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: width * 0.035),
-                                    )),
-                                  ),
-                                ],
-                              ),
+                            Text("12.00 KD",
+                                style: TextStyle(
+                                    color: Colors.black26,
+                                    fontSize: width * 0.035)),
+                            SizedBox(
+                              width: width * 0.025,
                             ),
-                            const Spacer(),
-                            Padding(
-                              padding: EdgeInsets.only(right: width * 0.05),
-                              child: Image.asset("assets/images/cont3.png"),
+                            Text(
+                              "14.00 KD",
+                              style: TextStyle(
+                                  color: Colors.black26,
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: width * 0.035),
                             ),
                           ],
+                        ),
+                        thirdInRow: Container(
+                          width: width * 0.27,
+                          height: height * 0.027,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(width * 0.2),
+                            color: const Color(0xffDF958F),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Up to 10% Off",
+                            style: TextStyle(
+                                color: Colors.white, fontSize: width * 0.035),
+                          )),
+                        ),
+                        rightItem: Padding(
+                          padding: EdgeInsets.only(right: width * 0.05),
+                          child: Image.asset("assets/images/cont3.png"),
                         ),
                       ),
                       onPressed: () {},

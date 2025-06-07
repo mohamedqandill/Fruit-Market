@@ -8,14 +8,15 @@ class CustomInlineText extends StatelessWidget {
   final Widget rightTitle;
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           leftTitle,
-          style: const TextStyle(
+          style: TextStyle(
               color: Colors.black,
-              fontSize: 18,
+              fontSize: width * 0.045,
               fontWeight: FontWeight.bold,
               fontFamily: "Sogeo UI"),
         ),
