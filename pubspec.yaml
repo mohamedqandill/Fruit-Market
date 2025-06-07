@@ -41,6 +41,7 @@ dependencies:
   intl_phone_field:
   flutter_otp_text_field:
   salomon_bottom_bar:
+  device_preview:
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +92,12 @@ flutter:
      - family: Arial
        fonts:
          - asset: assets/fonts/ArialCE.ttf
+     - family: Inter
+       fonts:
+         - asset: assets/fonts/Inter_18pt-Light.ttf
+     - family: Web
+       fonts:
+         - asset: assets/fonts/TitilliumWeb-SemiBold.ttf
      - family: ArialBold
        fonts:
        - asset: assets/fonts/arialceb.ttf

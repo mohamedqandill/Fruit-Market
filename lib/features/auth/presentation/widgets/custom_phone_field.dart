@@ -13,17 +13,21 @@ class CustomPhoneField extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     double maxWidth;
-    if (shortSide >= 900) {
-      maxWidth = width * 0.1;
-    } else if (shortSide >= 600) {
-      maxWidth = width * 0.65;
+
+    if (shortSide >= 1200) {
+      maxWidth = width * 0.4; // ديسكتوب
+    } else if (shortSide >= 800 && shortSide < 1200) {
+      maxWidth = width * 0.6; // تابلت كبير
+    } else if (shortSide >= 600 && shortSide < 800) {
+      maxWidth = width * 0.75; // تابلت صغير
     } else {
       if (isLandscape) {
-        maxWidth = width * 0.6;
+        maxWidth = width * 0.8;
+      } else {
+        maxWidth = width * 0.95;
       }
-      maxWidth = width * 0.9;
     }
-
+    print(shortSide);
     return Center(
       child: Container(
         width: maxWidth,

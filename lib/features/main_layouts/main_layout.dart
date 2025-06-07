@@ -47,6 +47,8 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
               topRight: Radius.circular(17),
             ),
             child: SalomonBottomBar(
+              itemPadding: EdgeInsets.symmetric(
+                  vertical: width * 0.008, horizontal: width * 0.008),
               unselectedItemColor: Colors.white,
               currentIndex: currentIndex,
               onTap: (index) {
@@ -54,6 +56,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   currentIndex = index;
                 });
               },
+              margin: EdgeInsets.all(width * 0.008),
               selectedItemColor: Colors.white,
               selectedColorOpacity: 0.91,
               backgroundColor: const Color(0xff204F38),
@@ -151,8 +154,7 @@ class CustomImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       image,
-      width: width,
-      fit: BoxFit.contain,
+      // width: width,
       color: isSelected ? Colors.black : Colors.white,
     );
   }

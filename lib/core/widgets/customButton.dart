@@ -17,9 +17,12 @@ class Custombutton extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.landscape;
     double maxWidth;
     double maxHeight;
-    if (shortSide >= 900) {
-      maxWidth = width * 0.99;
+    if (shortSide >= 1200) {
+      maxWidth = width * 0.89;
       maxHeight = height * 0.1;
+    } else if (shortSide >= 900) {
+      maxWidth = width * 0.59;
+      maxHeight = height * 0.05;
     } else if (shortSide >= 600) {
       maxWidth = width * 0.6;
       maxHeight = height * 0.06;

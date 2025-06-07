@@ -14,10 +14,12 @@ class CustomField extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.landscape;
 
     double maxWidth;
-    if (shortSide >= 900) {
+    if (shortSide >= 1200) {
       maxWidth = width * 0.07;
+    } else if (shortSide >= 900) {
+      maxWidth = width * 0.99;
     } else if (shortSide >= 600) {
-      maxWidth = width * 0.65;
+      maxWidth = width * 0.6;
     } else {
       if (isLandscape) {
         maxWidth = width * 0.7;

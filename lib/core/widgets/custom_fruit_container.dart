@@ -21,8 +21,10 @@ class CustomFruitContainer extends StatelessWidget {
                 color: Colors.grey, blurStyle: BlurStyle.outer, blurRadius: 1)
           ],
           border: Border.all(width: 1, color: Colors.grey.withOpacity(0.4)),
-          borderRadius: BorderRadius.circular(25)),
-      child: Image.asset(image),
+          borderRadius: BorderRadius.circular(20)),
+      child: Image.asset(
+        image,
+      ),
     );
   }
 }

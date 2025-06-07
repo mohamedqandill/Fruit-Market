@@ -1,8 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
 
 import '../../../../../core/constants/constants.dart';
 import '../../../../../core/widgets/custom_container.dart';
+import '../../../../../core/widgets/custom_container_title.dart';
 import '../../../../../core/widgets/custom_fruit_container.dart';
 import '../../../../../core/widgets/custom_inline_text.dart';
 
@@ -40,46 +42,49 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
 
-    return Column(
-      children: [
-        SizedBox(
-          height: height * 0.145,
-          child: PageView(
-            controller: pageController,
-            children: [
-              Image.asset("assets/images/homeFrame.png"),
-              Image.asset("assets/images/homeFrame.png"),
-              Image.asset("assets/images/homeFrame.png"),
-              Image.asset("assets/images/homeFrame.png"),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: DotsIndicator(
-            dotsCount: 4,
-            position: currentPage == 0
-                ? 0.0
-                : currentPage == 1
-                    ? 1.0
-                    : currentPage == 2
-                        ? 2.0
-                        : 3.0,
-            decorator: const DotsDecorator(
-              color: Colors.transparent,
-              shape: CircleBorder(
-                  eccentricity: 1.0,
-                  side: BorderSide(
-                    color: Colors.grey,
-                  )), // Inactive color
-              activeColor: primaryColor,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: height * 0.145,
+            child: PageView(
+              controller: pageController,
+              children: [
+                Image.asset("assets/images/homeFrame.png"),
+                Image.asset("assets/images/homeFrame.png"),
+                Image.asset("assets/images/homeFrame.png"),
+                Image.asset("assets/images/homeFrame.png"),
+              ],
             ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: width * 0.05, bottom: 5),
-          child: SizedBox(
-            height: height * 0.09,
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DotsIndicator(
+                dotsCount: 4,
+                position: currentPage == 0
+                    ? 0.0
+                    : currentPage == 1
+                        ? 1.0
+                        : currentPage == 2
+                            ? 2.0
+                            : 3.0,
+                decorator: const DotsDecorator(
+                  color: Colors.transparent,
+                  shape: CircleBorder(
+                      eccentricity: 1.0,
+                      side: BorderSide(
+                        color: Colors.grey,
+                      )), // Inactive color
+                  activeColor: primaryColor,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: height * 0.093,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
@@ -91,132 +96,146 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(
-                    width: width * 0.03,
+                    width: width * 0.038,
                   );
                 },
                 itemCount: 4),
           ),
-        ),
-        Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.03),
-            child: const CustomInlineText(
-              leftTitle: "Sellers",
-              rightTitle: Text("Show all",
-                  style: TextStyle(
-                      color: Color(0xff235C95),
-                      fontSize: 18,
-                      fontFamily: "Arial")),
-            )),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 3,
-            itemBuilder: (context, index) {
-              return CustomContainer(
-                widget: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Row(
-                          children: [
-                            const Text(
-                              "Seller Name",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Sogeo UI"),
-                            ),
-                            SizedBox(
-                              width: width * 0.03,
-                            ),
-                            Image.asset("assets/images/home8.png"),
-                            SizedBox(
-                              width: width * 0.23,
-                            ),
-                            const Text("4.5")
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset("assets/images/delivIcon.png"),
-                            Text(" Delivery Charges : 0.5 KD")
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 5,
-                                height: 5,
-                                decoration: const BoxDecoration(
-                                  color: Colors.grey,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 5),
-                                child: Text(
-                                  "Open",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.green),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: width * 0.05,
-                          ),
-                          Row(
-                            children: [
-                              Container(
-                                width: 5,
-                                height: 5,
-                                decoration: const BoxDecoration(
-                                  color: Colors.grey,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              const Padding(
-                                padding: EdgeInsets.only(top: 5),
-                                child: Text(
-                                  "Pizza",
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.blueAccent),
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: width * 0.23,
-                          ),
-                          Row(
-                            children: [
-                              Text("2.5KM"),
-                              Image.asset("assets/images/Path 218.png")
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
+          const CustomInlineText(
+            leftTitle: "Sellers",
+            rightTitle: Text("Show all",
+                style: TextStyle(
+                    color: Color(0xff235C95),
+                    fontSize: 18,
+                    fontFamily: "Arial")),
           ),
-        )
-      ],
+          SizedBox(
+            height: height * 0.01,
+          ),
+          Expanded(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => SizedBox(
+                height: height * 0.01,
+              ),
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return CustomContainer(
+                  widget: Expanded(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: height * 0.008),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const CustomContainerTitle(
+                                title: "Seller name",
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset("assets/images/delivIcon.png"),
+                                  Text(
+                                    "  Delivery Charges : 0.5 KD",
+                                    style: TextStyle(
+                                        color: Colors.black38,
+                                        fontFamily: "Web",
+                                        fontSize: width * 0.035),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: const BoxDecoration(
+                                          color: Colors.grey,
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      SizedBox(width: width * 0.02),
+                                      Text(
+                                        "Open",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.green),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.05,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: const BoxDecoration(
+                                          color: Colors.grey,
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      SizedBox(width: width * 0.02),
+                                      Text(
+                                        "Pizza",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.blueAccent),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.19,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: EdgeInsets.only(right: width * 0.03),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: height * 0.02),
+                                child: Text("4.5",
+                                    style: TextStyle(
+                                        fontSize: width * 0.035,
+                                        color: Colors.grey)),
+                              ),
+                              Spacer(),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: height * 0.01),
+                                child: Row(
+                                  children: [
+                                    Text("2.5KM",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.grey)),
+                                    Image.asset("assets/images/Path 218.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.sellerRoute);
+                  },
+                );
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }
