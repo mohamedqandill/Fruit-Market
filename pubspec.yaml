@@ -92,6 +92,9 @@ flutter:
      - family: Arial
        fonts:
          - asset: assets/fonts/ArialCE.ttf
+     - family: Poppins
+       fonts:
+         - asset: assets/fonts/Poppins-ExtraBold.ttf
      - family: Inter
        fonts:
          - asset: assets/fonts/Inter_18pt-Light.ttf

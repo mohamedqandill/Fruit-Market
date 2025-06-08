@@ -8,4 +8,5 @@ class Routes {
   static const String otpRoute = "otp";
   static const String mainLayoutRoute = "main";
   static const String sellerRoute = "seller";
+  static const String productDetailsRoute = "prodDetails";
 }

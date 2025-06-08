@@ -11,6 +11,7 @@
 //   static const String fontsArialCEMTBlack = 'assets/fonts/ArialCEMTBlack.ttf';
 //   static const String fontsArialceb = 'assets/fonts/arialceb.ttf';
 //   static const String fontsInter18ptLight = 'assets/fonts/Inter_18pt-Light.ttf';
+//   static const String fontsPoppinsExtraBold = 'assets/fonts/Poppins-ExtraBold.ttf';
 //   static const String fontsSegoe UI Bold = 'assets/fonts/Segoe UI Bold.ttf';
 //   static const String fontsTitilliumWebBlack = 'assets/fonts/TitilliumWeb-Black.ttf';
 //   static const String fontsTitilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
@@ -47,6 +48,7 @@
 //   static const String imagesHome7 = 'assets/images/home7.png';
 //   static const String imagesHome8 = 'assets/images/home8.png';
 //   static const String imagesHomeFrame = 'assets/images/homeFrame.png';
+//   static const String imagesIcon materialDeleteForever = 'assets/images/Icon material-delete-forever.png';
 //   static const String imagesIphone 1 = 'assets/images/Iphone 1.png';
 //   static const String imagesIphone 15 pro max $1199 copy 1 = 'assets/images/Iphone 15 pro max_ $1199 copy 1.png';
 //   static const String imagesMore = 'assets/images/more.png';

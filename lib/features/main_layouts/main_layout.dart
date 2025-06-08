@@ -37,7 +37,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
             height: constraints.maxWidth > 900
                 ? 80
                 : constraints.maxWidth > 600
-                    ? 60
+                    ? 55
                     : 50,
           ),
           body: screens[currentIndex],
@@ -47,8 +47,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
               topRight: Radius.circular(17),
             ),
             child: SalomonBottomBar(
-              itemPadding: EdgeInsets.symmetric(
-                  vertical: width * 0.008, horizontal: width * 0.008),
+              itemPadding: EdgeInsets.symmetric(horizontal: width * 0.015),
               unselectedItemColor: Colors.white,
               currentIndex: currentIndex,
               onTap: (index) {
@@ -56,7 +55,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   currentIndex = index;
                 });
               },
-              margin: EdgeInsets.all(width * 0.008),
+              margin: EdgeInsets.all(width * 0.0088),
               selectedItemColor: Colors.white,
               selectedColorOpacity: 0.91,
               backgroundColor: const Color(0xff204F38),
@@ -75,10 +74,10 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
 
                 /// Orders
                 SalomonBottomBarItem(
-                  icon: CustomImage(
-                    isSelected: currentIndex == 1 ? true : false,
-                    image: "assets/images/orders.png",
-                    width: width * 0.07,
+                  icon: Icon(
+                    Icons.format_list_numbered_rounded,
+                    size: width * 0.099,
+                    color: currentIndex == 1 ? Colors.black : Colors.white,
                   ),
                   title: const CustomText(
                     text: 'Orders',

@@ -4,6 +4,7 @@ import 'package:responsive_adaptive_ui/core/widgets/custom_container.dart';
 import '../../../../../core/widgets/custom_container_content.dart';
 import '../../../../../core/widgets/custom_fruit_container.dart';
 import '../../../../../core/widgets/custom_inline_text.dart';
+import '../../../../core/routes_manager/routes.dart';
 
 class SellerDetailsBody extends StatelessWidget {
   const SellerDetailsBody({super.key});
@@ -174,7 +175,10 @@ class SellerDetailsBody extends StatelessWidget {
                           child: Image.asset("assets/images/cont3.png"),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routes.productDetailsRoute);
+                      },
                     ),
                 separatorBuilder: (context, index) => SizedBox(
                       height: height * 0.02,

@@ -17,6 +17,7 @@ class _MainAppBarState extends State<MainAppBar> {
     var width = MediaQuery.sizeOf(context).width;
 
     return AppBar(
+      backgroundColor: Colors.white,
       bottom: const PreferredSize(
           preferredSize: Size(double.infinity, 0), child: Divider()),
       leadingWidth: 0,

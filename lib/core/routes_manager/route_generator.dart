@@ -9,11 +9,14 @@ import 'package:responsive_adaptive_ui/features/splash/presentation/view/splash_
 import '../../features/auth/presentation/view/auth_screen.dart';
 import '../../features/auth/presentation/view/sign_in_screen.dart';
 import '../../features/auth/presentation/view/sign_up_screen.dart';
-import '../../features/main_layouts/seller_details/presentation/view/seller_details_screen.dart';
+import '../../features/product_details/presentation/view/product_details_screen.dart';
+import '../../features/seller_details/presentation/view/seller_details_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.productDetailsRoute:
+        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
       case Routes.sellerRoute:
         return MaterialPageRoute(builder: (_) => const SellerDetailsScreen());
       case Routes.mainLayoutRoute:
