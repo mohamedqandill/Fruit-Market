@@ -11,7 +11,7 @@ class CustomContainerTitle extends StatelessWidget {
       title,
       style: TextStyle(
           color: Colors.black,
-          fontSize: width * 0.045,
+          fontSize: width * 0.043,
           fontWeight: FontWeight.bold,
           fontFamily: "Sogeo UI"),
     );

@@ -13,10 +13,7 @@ class SellerDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
-        title: Image.asset(
-          "assets/images/Fruit Market.png",
-          width: width * 0.4,
-        ),
+        title: "Fruit Market",
         actions: [
           Image.asset(
             "assets/images/search.png",

@@ -160,7 +160,7 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                 onToggle: () {
                   setState(() {
                     weightExpanded = !weightExpanded;
-                    if (weightExpanded) addonExpanded = false; // اقفل التاني
+                    if (weightExpanded) addonExpanded = false;
                   });
                 },
                 options: {
@@ -184,7 +184,7 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
                 onToggle: () {
                   setState(() {
                     addonExpanded = !addonExpanded;
-                    if (addonExpanded) weightExpanded = false; // اقفل التاني
+                    if (addonExpanded) weightExpanded = false;
                   });
                 },
                 options: {

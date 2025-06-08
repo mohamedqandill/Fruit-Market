@@ -10,4 +10,9 @@ class Routes {
   static const String sellerRoute = "seller";
   static const String productDetailsRoute = "prodDetails";
   static const String moreRoute = "more";
+  static const String myOrderRoute = "order";
+  static const String myFavoriteRoute = "fav";
+  static const String termsRoute = "terms";
+  static const String contactRoute = "contact";
+  static const String profileRoute = "profile";
 }

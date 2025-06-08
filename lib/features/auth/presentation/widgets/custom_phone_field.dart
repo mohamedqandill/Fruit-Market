@@ -24,7 +24,7 @@ class CustomPhoneField extends StatelessWidget {
       if (isLandscape) {
         maxWidth = width * 0.8;
       } else {
-        maxWidth = width * 0.95;
+        maxWidth = width * 0.9;
       }
     }
     print(shortSide);

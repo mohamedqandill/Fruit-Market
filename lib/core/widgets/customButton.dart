@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 
 class Custombutton extends StatelessWidget {
-  const Custombutton({required this.title, required this.onPressed, super.key});
+  const Custombutton(
+      {this.isSmall = false,
+      required this.title,
+      required this.onPressed,
+      super.key});
 
   final String title;
 
   final VoidCallback onPressed;
+  final bool isSmall;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,10 @@ class Custombutton extends StatelessWidget {
         MediaQuery.of(context).orientation == Orientation.landscape;
     double maxWidth;
     double maxHeight;
+    if (isSmall) {
+      maxWidth = width * 0.35;
+      maxHeight = height * 0.02;
+    }
     if (shortSide >= 1200) {
       maxWidth = width * 0.85;
       maxHeight = height * 0.07;

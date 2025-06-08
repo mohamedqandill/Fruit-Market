@@ -10,12 +10,27 @@ import '../../features/auth/presentation/view/auth_screen.dart';
 import '../../features/auth/presentation/view/sign_in_screen.dart';
 import '../../features/auth/presentation/view/sign_up_screen.dart';
 import '../../features/main_layouts/more/presentation/view/more_screen.dart';
+import '../../features/main_layouts/more/presentation/widgets/contact_us_screen.dart';
+import '../../features/main_layouts/more/presentation/widgets/my_favourite_screen.dart';
+import '../../features/main_layouts/more/presentation/widgets/my_order_screen.dart';
+import '../../features/main_layouts/more/presentation/widgets/profile_screen.dart';
+import '../../features/main_layouts/more/presentation/widgets/terms_screen.dart';
 import '../../features/product_details/presentation/view/product_details_screen.dart';
 import '../../features/seller_details/presentation/view/seller_details_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.termsRoute:
+        return MaterialPageRoute(builder: (_) => const TermsScreen());
+      case Routes.myFavoriteRoute:
+        return MaterialPageRoute(builder: (_) => const MyFavouriteScreen());
+      case Routes.profileRoute:
+        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case Routes.contactRoute:
+        return MaterialPageRoute(builder: (_) => const ContactUsScreen());
+      case Routes.myOrderRoute:
+        return MaterialPageRoute(builder: (_) => const MyOrderScreen());
       case Routes.moreRoute:
         return MaterialPageRoute(builder: (_) => const MoreScreen());
       case Routes.productDetailsRoute:

@@ -156,7 +156,7 @@ class BasketBodyView extends StatelessWidget {
                 ),
                 const CustomBasketText(
                   title: "Bag Total",
-                  price: "37.50",
+                  price: "37.50 ",
                   currency: "KD",
                   isBold: true,
                 ),

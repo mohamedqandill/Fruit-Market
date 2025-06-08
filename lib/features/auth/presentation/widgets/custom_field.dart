@@ -47,7 +47,7 @@ class CustomField extends StatelessWidget {
                 labelText: label,
                 labelStyle: const TextStyle(fontFamily: "Arial"),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(width * 0.5),
                   borderSide: BorderSide(color: Colors.grey.withOpacity(0.2)),
                 ),
               ),

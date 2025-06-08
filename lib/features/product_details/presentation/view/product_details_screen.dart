@@ -12,25 +12,20 @@ class ProductDetailsScreen extends StatelessWidget {
     var height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(
-          title: Text(
-            "Product Name",
-            style: TextStyle(fontFamily: "Poppins", fontSize: width * 0.06),
-          ),
-          actions: [
-            Image.asset(
-              "assets/images/fav.png",
-              height: height * 0.07,
-              color: Colors.black,
-            ),
-            Icon(
-              Icons.ios_share_outlined,
-              size: width * 0.07,
-            ),
-            SizedBox(
-              width: width * 0.02,
-            )
-          ]),
+      appBar: CustomAppBar(title: "Product Name", actions: [
+        Image.asset(
+          "assets/images/fav.png",
+          height: height * 0.07,
+          color: Colors.black,
+        ),
+        Icon(
+          Icons.ios_share_outlined,
+          size: width * 0.07,
+        ),
+        SizedBox(
+          width: width * 0.02,
+        )
+      ]),
       body: const ProductDetailsBody(),
     );
   }
