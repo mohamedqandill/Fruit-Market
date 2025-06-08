@@ -172,7 +172,12 @@ class SellerDetailsBody extends StatelessWidget {
                         ),
                         rightItem: Padding(
                           padding: EdgeInsets.only(right: width * 0.05),
-                          child: Image.asset("assets/images/cont3.png"),
+                          child: Image.asset(
+                            fit: BoxFit.fill,
+                            "assets/images/cont3.png",
+                            height: height * 0.06,
+                            width: width * 0.15,
+                          ),
                         ),
                       ),
                       onPressed: () {

@@ -19,8 +19,8 @@ class Custombutton extends StatelessWidget {
     double maxWidth;
     double maxHeight;
     if (shortSide >= 1200) {
-      maxWidth = width * 0.89;
-      maxHeight = height * 0.1;
+      maxWidth = width * 0.85;
+      maxHeight = height * 0.07;
     } else if (shortSide >= 900) {
       maxWidth = width * 0.59;
       maxHeight = height * 0.05;
@@ -43,7 +43,7 @@ class Custombutton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           title,
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: TextStyle(color: Colors.white, fontSize: width * 0.05),
         ));
   }
 }

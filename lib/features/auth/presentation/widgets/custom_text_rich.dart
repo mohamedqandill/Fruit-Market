@@ -5,23 +5,28 @@ class CustomTextRich extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    var width = MediaQuery.sizeOf(context).width;
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Center(
         child: Text.rich(
           TextSpan(
             style: TextStyle(
-                fontFamily: "Arial", fontSize: 18, color: Colors.black38),
+                fontFamily: "Arial",
+                fontSize: width * 0.04,
+                color: Colors.black38),
             text: "By continuing you agree to our ",
             children: [
               TextSpan(
                 text: "Terms of Services ",
-                style: TextStyle(color: Color(0xff235C95)),
+                style:
+                    TextStyle(fontSize: width * 0.04, color: Color(0xff235C95)),
               ),
-              TextSpan(text: "and our "),
+              const TextSpan(text: "and our "),
               TextSpan(
                 text: "Privacy Policy",
-                style: TextStyle(color: Color(0xff235C95)),
+                style:
+                    TextStyle(fontSize: width * 0.04, color: Color(0xff235C95)),
               ),
             ],
           ),

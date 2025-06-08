@@ -9,4 +9,5 @@ class Routes {
   static const String mainLayoutRoute = "main";
   static const String sellerRoute = "seller";
   static const String productDetailsRoute = "prodDetails";
+  static const String moreRoute = "more";
 }

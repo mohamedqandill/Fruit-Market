@@ -26,7 +26,7 @@ class CustomAuthContainer extends StatelessWidget {
         height: height * heightFraction,
         decoration: BoxDecoration(
             color: color,
-            borderRadius: const BorderRadius.all(Radius.circular(25)),
+            borderRadius: BorderRadius.all(Radius.circular(width * 0.5)),
             border: Border.all(width: 1, color: Colors.grey.withOpacity(0.5))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,9 +35,18 @@ class CustomAuthContainer extends StatelessWidget {
               padding: const EdgeInsets.only(right: 10),
               child: Image.asset(image),
             ),
-            Text(
-              title,
-              style: TextStyle(color: textColor),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return Text(
+                  title,
+                  style: TextStyle(
+                      fontFamily: "Arial",
+                      fontSize: constraints.maxWidth > 650
+                          ? width * 0.03
+                          : width * 0.04,
+                      color: textColor),
+                );
+              },
             )
           ],
         ),

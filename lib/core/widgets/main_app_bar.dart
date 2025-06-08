@@ -29,12 +29,14 @@ class _MainAppBarState extends State<MainAppBar> {
       actions: [
         Image.asset(
           "assets/images/search.png",
+          width: width * 0.06,
         ),
         SizedBox(
           width: width * 0.04,
         ),
         Image.asset(
           "assets/images/filter.png",
+          width: width * 0.06,
         ),
         SizedBox(
           width: width * 0.02,

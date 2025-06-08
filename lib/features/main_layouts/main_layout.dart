@@ -29,6 +29,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var h = MediaQuery.sizeOf(context).height;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -76,7 +77,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                 SalomonBottomBarItem(
                   icon: Icon(
                     Icons.format_list_numbered_rounded,
-                    size: width * 0.099,
+                    size: h * 0.049,
                     color: currentIndex == 1 ? Colors.black : Colors.white,
                   ),
                   title: const CustomText(
@@ -134,8 +135,12 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).height;
     return Text(text,
-        style: const TextStyle(color: Colors.black, fontFamily: "Segoe UI"));
+        style: TextStyle(
+            fontSize: width * 0.015,
+            color: Colors.black,
+            fontFamily: "Segoe UI"));
   }
 }
 

@@ -15,11 +15,11 @@ class CustomPhoneField extends StatelessWidget {
     double maxWidth;
 
     if (shortSide >= 1200) {
-      maxWidth = width * 0.4; // ديسكتوب
+      maxWidth = width * 0.4;
     } else if (shortSide >= 800 && shortSide < 1200) {
-      maxWidth = width * 0.6; // تابلت كبير
+      maxWidth = width * 0.6;
     } else if (shortSide >= 600 && shortSide < 800) {
-      maxWidth = width * 0.75; // تابلت صغير
+      maxWidth = width * 0.75;
     } else {
       if (isLandscape) {
         maxWidth = width * 0.8;
@@ -45,7 +45,7 @@ class CustomPhoneField extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Mobile Number',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(width * 0.5),
                   borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
                 ),
               ),

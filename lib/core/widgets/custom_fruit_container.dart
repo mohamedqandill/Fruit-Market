@@ -12,6 +12,7 @@ class CustomFruitContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var widthM = MediaQuery.sizeOf(context).height;
     return Container(
       width: width,
       height: height,
@@ -22,8 +23,12 @@ class CustomFruitContainer extends StatelessWidget {
           ],
           border: Border.all(width: 1, color: Colors.grey.withOpacity(0.4)),
           borderRadius: BorderRadius.circular(20)),
-      child: Image.asset(
-        image,
+      child: Padding(
+        padding: EdgeInsets.all(widthM * 0.01),
+        child: Image.asset(
+          fit: BoxFit.fill,
+          image,
+        ),
       ),
     );
   }

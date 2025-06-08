@@ -12,21 +12,22 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.sizeOf(context).width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           firstString,
-          style: const TextStyle(fontFamily: "ArialBold", fontSize: 18),
+          style: TextStyle(fontFamily: "ArialBold", fontSize: width * 0.04),
         ),
         InkWell(
           onTap: onPressed,
           child: Text(
             secondString,
-            style: const TextStyle(
+            style: TextStyle(
                 fontFamily: "Arial",
                 decorationColor: Color(0xff235C95),
-                fontSize: 18,
+                fontSize: width * 0.045,
                 color: Color(0xff235C95),
                 decoration: TextDecoration.underline),
           ),

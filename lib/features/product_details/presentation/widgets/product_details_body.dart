@@ -27,6 +27,7 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
         builder: (context, constraints) {
           if (kDebugMode) {
             print(constraints.maxWidth);
+            print(constraints.maxHeight);
           }
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,11 +35,13 @@ class _ProductDetailsBodyState extends State<ProductDetailsBody> {
               Stack(
                 children: [
                   SizedBox(
-                    height: constraints.maxWidth < 383
-                        ? height * 0.17
-                        : constraints.maxWidth >= 600
-                            ? height * 0.22
-                            : height * 0.27,
+                    height: constraints.maxHeight < 639
+                        ? height * 0.2
+                        : constraints.maxWidth < 383
+                            ? height * 0.171
+                            : constraints.maxWidth >= 600
+                                ? height * 0.22
+                                : height * 0.27,
                     width: constraints.maxWidth >= 650
                         ? width * 0.98
                         : width * 0.98,

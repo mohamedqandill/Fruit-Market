@@ -12,15 +12,16 @@ class CustomAuthTitle extends StatelessWidget {
       children: [
         Image.asset("assets/images/Fruit Market.png"),
         SizedBox(
-          height: height * 0.05,
+          height: height * 0.055,
         ),
         Center(
             child: Text(
           title,
-          style: const TextStyle(
-              fontFamily: "Sogeo UI",
-              fontWeight: FontWeight.bold,
-              fontSize: 28),
+          style: TextStyle(
+            fontFamily: "Sogeo UI",
+            fontWeight: FontWeight.bold,
+            fontSize: height * 0.03,
+          ),
         ))
       ],
     );
