@@ -15,4 +15,5 @@ class Routes {
   static const String termsRoute = "terms";
   static const String contactRoute = "contact";
   static const String profileRoute = "profile";
+  static const String checkoutRoute = "check";
 }

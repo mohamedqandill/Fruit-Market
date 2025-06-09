@@ -42,6 +42,9 @@ dependencies:
   flutter_otp_text_field:
   salomon_bottom_bar:
   device_preview:
+  easy_stepper:
+  step_progress_indicator:
+  intl:
 
 dev_dependencies:
   flutter_test:

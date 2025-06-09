@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/view/forget_password_screen.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/view/otp_screen.dart';
+import 'package:responsive_adaptive_ui/features/checkout/presentation/view/checkout_screen.dart';
 import 'package:responsive_adaptive_ui/features/main_layouts/main_layout.dart';
 import 'package:responsive_adaptive_ui/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:responsive_adaptive_ui/features/splash/presentation/view/splash_view.dart';
@@ -21,6 +22,8 @@ import '../../features/seller_details/presentation/view/seller_details_screen.da
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.checkoutRoute:
+        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
       case Routes.termsRoute:
         return MaterialPageRoute(builder: (_) => const TermsScreen());
       case Routes.myFavoriteRoute:

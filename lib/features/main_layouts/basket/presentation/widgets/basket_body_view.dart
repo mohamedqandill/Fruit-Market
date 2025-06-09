@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constants/constants.dart';
+import '../../../../../core/routes_manager/routes.dart';
 import '../../../../../core/widgets/custom_container.dart';
 import '../../../../../core/widgets/custom_container_content.dart';
 import 'custom_basket_text.dart';
@@ -187,7 +188,9 @@ class BasketBodyView extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               backgroundColor: primaryColor.withOpacity(0.77),
                               fixedSize: Size(width * 0.53, height * 0.03)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.checkoutRoute);
+                          },
                           child: FittedBox(
                             child: Text(
                               "Proceed To Checkout",
