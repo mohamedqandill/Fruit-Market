@@ -45,6 +45,7 @@ dependencies:
   easy_stepper:
   step_progress_indicator:
   intl:
+  universal_stepper:
 
 dev_dependencies:
   flutter_test:

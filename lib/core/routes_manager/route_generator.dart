@@ -3,6 +3,8 @@ import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/view/forget_password_screen.dart';
 import 'package:responsive_adaptive_ui/features/auth/presentation/view/otp_screen.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/view/checkout_screen.dart';
+import 'package:responsive_adaptive_ui/features/checkout/presentation/view/order_error_screen.dart';
+import 'package:responsive_adaptive_ui/features/checkout/presentation/view/order_tracking_screen.dart';
 import 'package:responsive_adaptive_ui/features/main_layouts/main_layout.dart';
 import 'package:responsive_adaptive_ui/features/onBoarding/presentation/view/on_boarding_view.dart';
 import 'package:responsive_adaptive_ui/features/splash/presentation/view/splash_view.dart';
@@ -10,6 +12,7 @@ import 'package:responsive_adaptive_ui/features/splash/presentation/view/splash_
 import '../../features/auth/presentation/view/auth_screen.dart';
 import '../../features/auth/presentation/view/sign_in_screen.dart';
 import '../../features/auth/presentation/view/sign_up_screen.dart';
+import '../../features/checkout/presentation/view/order_confirmation_screen.dart';
 import '../../features/main_layouts/more/presentation/view/more_screen.dart';
 import '../../features/main_layouts/more/presentation/widgets/contact_us_screen.dart';
 import '../../features/main_layouts/more/presentation/widgets/my_favourite_screen.dart';
@@ -22,6 +25,13 @@ import '../../features/seller_details/presentation/view/seller_details_screen.da
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.orderTrackRoute:
+        return MaterialPageRoute(builder: (_) => const OrderTrackingScreen());
+      case Routes.orderErrorRoute:
+        return MaterialPageRoute(builder: (_) => const OrderErrorScreen());
+      case Routes.orderConfRoute:
+        return MaterialPageRoute(
+            builder: (_) => const OrderConfirmationScreen());
       case Routes.checkoutRoute:
         return MaterialPageRoute(builder: (_) => const CheckoutScreen());
       case Routes.termsRoute:

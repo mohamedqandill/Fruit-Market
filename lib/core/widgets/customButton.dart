@@ -7,11 +7,17 @@ class Custombutton extends StatelessWidget {
       {this.isSmall = false,
       required this.title,
       required this.onPressed,
-      super.key});
+      super.key,
+      this.color = Colors.white,
+      this.backgroungColor = Colors.green,
+      this.isPrimary = true});
 
   final String title;
 
   final VoidCallback onPressed;
+  final Color color;
+  final Color backgroungColor;
+  final isPrimary;
   final bool isSmall;
 
   @override
@@ -47,12 +53,13 @@ class Custombutton extends StatelessWidget {
     }
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: primaryColor.withOpacity(0.77),
+            backgroundColor:
+                isPrimary ? primaryColor.withOpacity(0.77) : backgroungColor,
             fixedSize: Size(maxWidth, maxHeight)),
         onPressed: onPressed,
         child: Text(
           title,
-          style: TextStyle(color: Colors.white, fontSize: width * 0.05),
+          style: TextStyle(color: color, fontSize: width * 0.05),
         ));
   }
 }

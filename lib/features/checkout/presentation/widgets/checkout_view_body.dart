@@ -1,6 +1,7 @@
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/constants/constants.dart';
+import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/widgets/delivery_time_view_body.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/widgets/payment_view_body.dart';
 
@@ -73,11 +74,15 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             child: Padding(
               padding: EdgeInsets.only(bottom: height * 0.015),
               child: Custombutton(
-                title: "Continue",
+                title: activeSteps < 2 ? "Continue" : "Place Order",
                 onPressed: () {
-                  setState(() {
-                    activeSteps++;
-                  });
+                  if (activeSteps < 2) {
+                    setState(() {
+                      activeSteps++;
+                    });
+                  } else {
+                    Navigator.pushNamed(context, Routes.orderConfRoute);
+                  }
                 },
               ),
             ),

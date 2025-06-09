@@ -16,4 +16,7 @@ class Routes {
   static const String contactRoute = "contact";
   static const String profileRoute = "profile";
   static const String checkoutRoute = "check";
+  static const String orderConfRoute = "conf";
+  static const String orderErrorRoute = "error";
+  static const String orderTrackRoute = "track";
 }
