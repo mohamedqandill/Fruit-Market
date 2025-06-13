@@ -44,8 +44,8 @@ class Custombutton extends StatelessWidget {
       maxHeight = height * 0.06;
     } else {
       if (isLandscape) {
-        maxWidth = width * 0.68;
-        maxHeight = height * 0.04;
+        maxWidth = width * 0.6;
+        maxHeight = height * 0.15;
       } else {
         maxWidth = width * 0.85;
         maxHeight = height * 0.065;

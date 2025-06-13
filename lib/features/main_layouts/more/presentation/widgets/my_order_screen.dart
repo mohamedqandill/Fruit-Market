@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/widgets/custom_app_bar.dart';
 
+import '../../../../../core/routes_manager/routes.dart';
 import '../../../../../core/widgets/custom_container.dart';
 import '../../../../../core/widgets/custom_container_content.dart';
 
@@ -11,7 +12,10 @@ class MyOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: const CustomAppBar(
           actions: [],
           title: 'My Orders',
@@ -28,7 +32,9 @@ class MyOrderScreen extends StatelessWidget {
                 child: ListView.separated(
                     itemBuilder: (context, index) {
                       return CustomContainer(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.orderTrackRoute);
+                        },
                         widget: CustomContainerContent(
                             title: "#882610 ",
                             secondInRow: Row(
@@ -77,7 +83,9 @@ class MyOrderScreen extends StatelessWidget {
                               padding: EdgeInsets.only(right: width * 0.04),
                               child: Container(
                                 width: width * 0.158,
-                                height: height * 0.074,
+                                height: isLandScape
+                                    ? height * 0.24
+                                    : height * 0.074,
                                 decoration: BoxDecoration(
                                     color: colors[index],
                                     borderRadius:

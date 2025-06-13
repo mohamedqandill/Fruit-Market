@@ -12,6 +12,8 @@ class AuthViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return SingleChildScrollView(
       child: Padding(
@@ -23,12 +25,12 @@ class AuthViewBody extends StatelessWidget {
             const CustomAuthTitle(
               title: "Welcome to Our app",
             ),
-            SizedBox(height: height * 0.02),
+            SizedBox(height: isLandScape ? height * 0.002 : height * 0.02),
             SizedBox(
-              height: height * 0.3,
+              height: isLandScape ? height * 0.38 : height * 0.3,
               child: ListView.separated(
-                separatorBuilder: (context, index) =>
-                    SizedBox(height: height * 0.02),
+                separatorBuilder: (context, index) => SizedBox(
+                    height: isLandScape ? height * 0.03 : height * 0.02),
                 itemCount: images.length,
                 itemBuilder: (context, index) {
                   return LayoutBuilder(
@@ -40,7 +42,8 @@ class AuthViewBody extends StatelessWidget {
                         widthFraction: widthFraction,
                         image: images[index],
                         title: titles[index],
-                        color: index == 2 ? Color(0xff235C95) : Colors.white,
+                        color:
+                            index == 2 ? const Color(0xff235C95) : Colors.white,
                         textColor: index == 2 ? Colors.white : Colors.black,
                       );
                     },
@@ -48,7 +51,7 @@ class AuthViewBody extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: height * 0.09),
+            SizedBox(height: isLandScape ? height * 0.02 : height * 0.09),
             CustomText(
               onPressed: () {
                 Navigator.pushNamed(context, Routes.signInRoute);
@@ -56,9 +59,9 @@ class AuthViewBody extends StatelessWidget {
               firstString: "Already Member? ",
               secondString: "Sign In",
             ),
-            SizedBox(height: height * 0.06),
+            SizedBox(height: isLandScape ? height * 0.02 : height * 0.06),
             const CustomTextRich(),
-            SizedBox(height: height * 0.06),
+            SizedBox(height: isLandScape ? height * 0.02 : height * 0.06),
           ],
         ),
       ),
@@ -75,7 +78,7 @@ num calculateWidthFraction(BuildContext context, BoxConstraints constraints) {
 
   if (shortestSide < 600) {
     if (isLandscape) {
-      return widthFraction = 0.4;
+      return widthFraction = 0.45;
     } else {
       return widthFraction = 0.8;
     }

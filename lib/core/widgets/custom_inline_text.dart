@@ -13,6 +13,8 @@ class CustomInlineText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -20,7 +22,7 @@ class CustomInlineText extends StatelessWidget {
           leftTitle,
           style: TextStyle(
               color: isLight ? Colors.black54 : Colors.black,
-              fontSize: width * 0.045,
+              fontSize: isLandScape ? width * 0.038 : width * 0.045,
               fontWeight: FontWeight.bold,
               fontFamily: "Sogeo UI"),
         ),

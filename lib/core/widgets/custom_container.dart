@@ -14,6 +14,8 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return InkWell(
       onTap: onPressed,
@@ -21,7 +23,11 @@ class CustomContainer extends StatelessWidget {
         builder: (context, constraints) {
           return Container(
             width: double.infinity,
-            height: constraints.maxWidth > 600 ? height * 0.15 : height * 0.12,
+            height: isLandScape
+                ? height * 0.4
+                : constraints.maxWidth > 600
+                    ? height * 0.15
+                    : height * 0.12,
             decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
@@ -39,7 +45,7 @@ class CustomContainer extends StatelessWidget {
                   child: Image.asset(
                     image,
                     fit: BoxFit.fill,
-                    height: height * 0.075,
+                    height: isLandScape ? height * 0.5 : height * 0.075,
                     width: width * 0.184,
                   ),
                 ),

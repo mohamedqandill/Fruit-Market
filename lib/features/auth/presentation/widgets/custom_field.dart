@@ -22,7 +22,7 @@ class CustomField extends StatelessWidget {
       maxWidth = width * 0.6;
     } else {
       if (isLandscape) {
-        maxWidth = width * 0.7;
+        maxWidth = width * 0.6;
       } else {
         maxWidth = width * 0.9;
       }

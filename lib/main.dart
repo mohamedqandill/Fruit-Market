@@ -11,7 +11,9 @@ void main() async {
   await CacheHelper.init();
 
   runApp(DevicePreview(
-    builder: (context) => const MyApp(),
+    builder: (context) {
+      return const MyApp();
+    },
   ));
 }
 

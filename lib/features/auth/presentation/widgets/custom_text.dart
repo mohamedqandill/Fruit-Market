@@ -6,6 +6,7 @@ class CustomText extends StatelessWidget {
       required this.onPressed,
       required this.secondString,
       super.key});
+
   final String firstString;
   final String secondString;
   final VoidCallback onPressed;
@@ -13,12 +14,16 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           firstString,
-          style: TextStyle(fontFamily: "ArialBold", fontSize: width * 0.04),
+          style: TextStyle(
+              fontFamily: "ArialBold",
+              fontSize: isLandScape ? width * 0.03 : width * 0.04),
         ),
         InkWell(
           onTap: onPressed,
@@ -27,8 +32,8 @@ class CustomText extends StatelessWidget {
             style: TextStyle(
                 fontFamily: "Arial",
                 decorationColor: Color(0xff235C95),
-                fontSize: width * 0.045,
-                color: Color(0xff235C95),
+                fontSize: isLandScape ? width * 0.03 : width * 0.045,
+                color: const Color(0xff235C95),
                 decoration: TextDecoration.underline),
           ),
         )

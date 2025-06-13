@@ -15,7 +15,9 @@
 //   static const String fontsSegoe UI Bold = 'assets/fonts/Segoe UI Bold.ttf';
 //   static const String fontsTitilliumWebBlack = 'assets/fonts/TitilliumWeb-Black.ttf';
 //   static const String fontsTitilliumWebSemiBold = 'assets/fonts/TitilliumWeb-SemiBold.ttf';
+//   static const String images24 Language = 'assets/images/24 Language.png';
 //   static const String imagesBasket = 'assets/images/basket.png';
+//   static const String imagesClip path group = 'assets/images/Clip path group.png';
 //   static const String imagesCont2 = 'assets/images/cont2.png';
 //   static const String imagesCont3 = 'assets/images/cont3.png';
 //   static const String imagesDelivIcon = 'assets/images/delivIcon.png';
@@ -39,6 +41,13 @@
 //   static const String imagesFruitBottom = 'assets/images/fruitBottom.png';
 //   static const String imagesFruitsplash = 'assets/images/fruitsplash.png';
 //   static const String imagesGoogle = 'assets/images/google.png';
+//   static const String imagesGroup 150 = 'assets/images/Group 150.png';
+//   static const String imagesGroup 183 = 'assets/images/Group 183.png';
+//   static const String imagesGroup 19 = 'assets/images/Group 19.png';
+//   static const String imagesGroup 2828 = 'assets/images/Group 2828.png';
+//   static const String imagesGroup 2830 = 'assets/images/Group 2830.png';
+//   static const String imagesGroup 2831 = 'assets/images/Group 2831.png';
+//   static const String imagesGroup 2851 = 'assets/images/Group 2851.png';
 //   static const String imagesHome = 'assets/images/home.png';
 //   static const String imagesHome1 = 'assets/images/home1.png';
 //   static const String imagesHome2 = 'assets/images/home2.png';
@@ -48,9 +57,15 @@
 //   static const String imagesHome7 = 'assets/images/home7.png';
 //   static const String imagesHome8 = 'assets/images/home8.png';
 //   static const String imagesHomeFrame = 'assets/images/homeFrame.png';
+//   static const String imagesIcon awesomeHeadphonesAlt = 'assets/images/Icon awesome-headphones-alt.png';
+//   static const String imagesIcon featherUser = 'assets/images/Icon feather-user.png';
+//   static const String imagesIcon ionicIosInformationCircleOutline = 'assets/images/Icon ionic-ios-information-circle-outline.png';
 //   static const String imagesIcon materialDeleteForever = 'assets/images/Icon material-delete-forever.png';
+//   static const String imagesImage 10 = 'assets/images/image 10.png';
 //   static const String imagesIphone 1 = 'assets/images/Iphone 1.png';
 //   static const String imagesIphone 15 pro max $1199 copy 1 = 'assets/images/Iphone 15 pro max_ $1199 copy 1.png';
+//   static const String imagesKnet = 'assets/images/knet.png';
+//   static const String imagesKnet1 = 'assets/images/knet1.png';
 //   static const String imagesMore = 'assets/images/more.png';
 //   static const String imagesMore2 = 'assets/images/More2.png';
 //   static const String imagesOrders = 'assets/images/orders.png';
@@ -59,6 +74,12 @@
 //   static const String imagesPet = 'assets/images/pet.png';
 //   static const String imagesPhone = 'assets/images/phone.png';
 //   static const String imagesSearch = 'assets/images/search.png';
+//   static const String imagesShape 17 = 'assets/images/Shape 17.png';
+//   static const String imagesVector = 'assets/images/Vector.png';
+//   static const String imagesVector1 = 'assets/images/Vector1.png';
+//   static const String imagesVector2 = 'assets/images/Vector2.png';
+//   static const String imagesVector3 = 'assets/images/Vector3.png';
 //   static const String imagesVeg = 'assets/images/veg.png';
+//   static const String imagesYellow and Red Simple Fresh Fruit Abstract Logo = 'assets/images/Yellow and Red Simple Fresh Fruit Abstract Logo.png';
 //
 // }

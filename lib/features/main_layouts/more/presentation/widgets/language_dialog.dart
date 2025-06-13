@@ -15,6 +15,8 @@ class _LanguageDialogState extends State<LanguageDialog> {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return LayoutBuilder(
       builder: (context, constraints) => Dialog(
         shape: RoundedRectangleBorder(
@@ -24,7 +26,7 @@ class _LanguageDialogState extends State<LanguageDialog> {
           builder: (context, setState) {
             return Container(
               padding: EdgeInsets.all(width * 0.04),
-              height: height * 0.35,
+              height: isLandScape ? height * 0.75 : height * 0.35,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

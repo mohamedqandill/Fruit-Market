@@ -12,6 +12,8 @@ class MyFavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Scaffold(
       appBar: const CustomAppBar(title: "My Favourite", actions: []),
       backgroundColor: Colors.white,
@@ -53,7 +55,8 @@ class MyFavouriteScreen extends StatelessWidget {
                               child: Image.asset(
                                 "assets/images/Icon material-delete-forever.png",
                                 width: width * 0.05,
-                                height: height * 0.03,
+                                height:
+                                    isLandScape ? height * 0.1 : height * 0.03,
                                 fit: BoxFit.fill,
                               ),
                             )),

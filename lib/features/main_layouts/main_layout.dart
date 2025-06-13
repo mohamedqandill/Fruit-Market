@@ -30,6 +30,8 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var h = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -48,7 +50,8 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
               topRight: Radius.circular(17),
             ),
             child: SalomonBottomBar(
-              itemPadding: EdgeInsets.symmetric(horizontal: width * 0.015),
+              itemPadding: EdgeInsets.symmetric(
+                  horizontal: isLandScape ? width * 0.01 : width * 0.015),
               unselectedItemColor: Colors.white,
               currentIndex: currentIndex,
               onTap: (index) {
@@ -66,7 +69,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 0 ? true : false,
                     image: "assets/images/home.png",
-                    width: width * 0.07,
+                    width: isLandScape ? width * 0.04 : width * 0.07,
                   ),
                   title: const CustomText(
                     text: 'Home',
@@ -90,7 +93,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 2 ? true : false,
                     image: "assets/images/basket.png",
-                    width: width * 0.08,
+                    width: isLandScape ? width * 0.04 : width * 0.08,
                   ),
                   title: const CustomText(
                     text: 'Basket',
@@ -102,7 +105,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 3 ? true : false,
                     image: "assets/images/favourite.png",
-                    width: width * 0.07,
+                    width: isLandScape ? width * 0.04 : width * 0.07,
                   ),
                   title: const CustomText(
                     text: 'Favourite',

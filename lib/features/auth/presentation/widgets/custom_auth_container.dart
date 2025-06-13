@@ -9,6 +9,7 @@ class CustomAuthContainer extends StatelessWidget {
       required this.textColor,
       required this.image,
       super.key});
+
   final String image;
   final String title;
   final Color color;
@@ -20,10 +21,12 @@ class CustomAuthContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Center(
       child: Container(
         width: width * widthFraction,
-        height: height * heightFraction,
+        height: isLandScape ? height * 0.075 : height * heightFraction,
         decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.all(Radius.circular(width * 0.5)),

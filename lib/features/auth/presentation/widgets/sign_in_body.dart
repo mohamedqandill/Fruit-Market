@@ -39,7 +39,7 @@ class SignInBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: height * 0.03,
+                height: isLandscape ? height * 0.01 : height * 0.03,
               ),
               IconButton(
                   onPressed: () {
@@ -50,7 +50,7 @@ class SignInBody extends StatelessWidget {
                     size: 30,
                   )),
               SizedBox(
-                height: height * 0.06,
+                height: isLandscape ? height * 0.01 : height * 0.06,
               ),
               const CustomAuthTitle(title: "Login To Wikala"),
               SizedBox(

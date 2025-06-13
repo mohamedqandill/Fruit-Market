@@ -14,52 +14,56 @@ class OrderConfirmationViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(
         horizontal: width * 0.03,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(child: Image.asset("assets/images/Group 2828.png")),
-          Text(
-            "YOUR ORDER IS CONFIRMED!",
-            style: TextStyle(
-                fontFamily: "Web",
-                fontSize: width * 0.058,
-                fontWeight: FontWeight.bold,
-                color: primaryColor),
-          ),
-          Text(
-            "Your order code: #243188",
-            style: TextStyle(
-                fontFamily: "Web",
-                fontSize: width * 0.049,
-                color: Colors.black54),
-          ),
-          Text(
-            "Thank you for choosing our products!",
-            style: TextStyle(
-                fontFamily: "Web",
-                fontSize: width * 0.049,
-                color: Colors.black54),
-          ),
-          SizedBox(
-            height: height * 0.028,
-          ),
-          Custombutton(
-            title: "Continue Shopping",
-            onPressed: () {},
-          ),
-          SizedBox(
-            height: height * 0.028,
-          ),
-          Custombutton(
-            isPrimary: false,
-            color: primaryColor,
-            backgroungColor: Colors.white,
-            title: "Track Order",
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.orderTrackRoute);
-            },
-          )
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(child: Image.asset("assets/images/Group 2828.png")),
+            Text(
+              "YOUR ORDER IS CONFIRMED!",
+              style: TextStyle(
+                  fontFamily: "Web",
+                  fontSize: width * 0.058,
+                  fontWeight: FontWeight.bold,
+                  color: primaryColor),
+            ),
+            Text(
+              "Your order code: #243188",
+              style: TextStyle(
+                  fontFamily: "Web",
+                  fontSize: width * 0.049,
+                  color: Colors.black54),
+            ),
+            Text(
+              "Thank you for choosing our products!",
+              style: TextStyle(
+                  fontFamily: "Web",
+                  fontSize: width * 0.049,
+                  color: Colors.black54),
+            ),
+            SizedBox(
+              height: height * 0.028,
+            ),
+            Custombutton(
+              title: "Continue Shopping",
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, Routes.mainLayoutRoute);
+              },
+            ),
+            SizedBox(
+              height: height * 0.028,
+            ),
+            Custombutton(
+              isPrimary: false,
+              color: primaryColor,
+              backgroungColor: Colors.white,
+              title: "Track Order",
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.orderTrackRoute);
+              },
+            )
+          ],
+        ),
       ),
     );
   }

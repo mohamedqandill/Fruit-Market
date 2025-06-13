@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 
 class CustomAuthTitle extends StatelessWidget {
   const CustomAuthTitle({required this.title, super.key});
+
   final String title;
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Column(
       children: [
-        Image.asset("assets/images/Fruit Market.png"),
+        Image.asset(
+          "assets/images/Fruit Market.png",
+          height: isLandScape ? height * 0.06 : 0.08,
+        ),
         SizedBox(
           height: height * 0.055,
         ),
@@ -20,7 +26,7 @@ class CustomAuthTitle extends StatelessWidget {
           style: TextStyle(
             fontFamily: "Sogeo UI",
             fontWeight: FontWeight.bold,
-            fontSize: height * 0.03,
+            fontSize: isLandScape ? height * 0.04 : height * 0.03,
           ),
         ))
       ],
