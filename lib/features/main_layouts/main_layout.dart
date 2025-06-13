@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_adaptive_ui/core/widgets/custom_search_bar.dart';
 import 'package:responsive_adaptive_ui/features/main_layouts/basket/presentation/view/basket_screen.dart';
 import 'package:responsive_adaptive_ui/features/main_layouts/favourite/presentation/view/favourite_screen.dart';
 import 'package:responsive_adaptive_ui/features/main_layouts/home/presentation/view/home_screen.dart';
@@ -17,6 +18,7 @@ class MainLayoutScreen extends StatefulWidget {
 
 class _MainLayoutScreenState extends State<MainLayoutScreen> {
   int currentIndex = 0;
+  bool isSearchOn = false;
 
   final List<Widget> screens = [
     const HomeScreen(),
@@ -37,13 +39,26 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
       builder: (context, constraints) {
         return Scaffold(
           appBar: MainAppBar(
+            onTap: () {
+              setState(() {
+                isSearchOn = true;
+              });
+            },
             height: constraints.maxWidth > 900
                 ? 80
                 : constraints.maxWidth > 600
                     ? 55
                     : 50,
           ),
-          body: screens[currentIndex],
+          body: isSearchOn
+              ? CustomSearchBar(
+                  onTap: () {
+                    setState(() {
+                      isSearchOn = false;
+                    });
+                  },
+                )
+              : screens[currentIndex],
           bottomNavigationBar: ClipRRect(
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(17),

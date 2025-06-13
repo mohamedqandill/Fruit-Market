@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'filter_dialog.dart';
+
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
-  const MainAppBar({required this.height, super.key});
+  const MainAppBar({
+    required this.height,
+    super.key,
+    required this.onTap,
+  });
 
   final double height;
+  final VoidCallback onTap;
+
   @override
   State<MainAppBar> createState() => _MainAppBarState();
 
@@ -27,16 +35,29 @@ class _MainAppBarState extends State<MainAppBar> {
         width: width * 0.4,
       ),
       actions: [
-        Image.asset(
-          "assets/images/search.png",
-          width: width * 0.06,
+        InkWell(
+          onTap: widget.onTap,
+          child: Image.asset(
+            "assets/images/search.png",
+            width: width * 0.06,
+          ),
         ),
         SizedBox(
           width: width * 0.04,
         ),
-        Image.asset(
-          "assets/images/filter.png",
-          width: width * 0.06,
+        InkWell(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return const FilterDialog();
+              },
+            );
+          },
+          child: Image.asset(
+            "assets/images/filter.png",
+            width: width * 0.06,
+          ),
         ),
         SizedBox(
           width: width * 0.02,

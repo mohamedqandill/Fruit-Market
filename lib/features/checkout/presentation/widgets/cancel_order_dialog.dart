@@ -27,26 +27,41 @@ class _CancelOrderDialogState extends State<CancelOrderDialog> {
           builder: (context, setState) {
             return Container(
               padding: EdgeInsets.all(width * 0.04),
-              height: isLandScape ? height * 0.75 : height * 0.39,
+              height: isLandScape ? height * 0.75 : height * 0.45,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const CustomField(title: "", label: "Name"),
+                  Text(
+                    "Cancel Order",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: width * 0.045),
+                  ),
+                  const CustomField(title: "", label: "Cancel Reason"),
                   SizedBox(
                     height: height * 0.005,
                   ),
-                  const CustomField(title: "", label: "Cancel Reason"),
+                  const CustomField(title: "", label: "Notes"),
                   const Spacer(),
                   Custombutton(
-                    title: "Submit",
+                    title: "Confirm Cancelation ",
                     onPressed: () {
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },
                   ),
-                  SizedBox(
-                    height: height * 0.01,
-                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Close",
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontFamily: "Web",
+                            fontSize: width * 0.04),
+                      )),
                 ],
               ),
             );

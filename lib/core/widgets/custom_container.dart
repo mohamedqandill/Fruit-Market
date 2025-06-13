@@ -45,8 +45,8 @@ class CustomContainer extends StatelessWidget {
                   child: Image.asset(
                     image,
                     fit: BoxFit.fill,
-                    height: isLandScape ? height * 0.5 : height * 0.075,
-                    width: width * 0.184,
+                    height: isLandScape ? height * 0.5 : height * 0.092,
+                    width: width * 0.189,
                   ),
                 ),
                 widget
