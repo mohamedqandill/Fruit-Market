@@ -15,7 +15,7 @@ class CustomAuthTitle extends StatelessWidget {
       children: [
         Image.asset(
           "assets/images/Fruit Market.png",
-          height: isLandScape ? height * 0.06 : 0.08,
+          height: isLandScape ? height * 0.06 : height * 0.08,
         ),
         SizedBox(
           height: height * 0.055,

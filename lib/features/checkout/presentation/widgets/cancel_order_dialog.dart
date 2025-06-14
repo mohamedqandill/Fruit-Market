@@ -12,6 +12,7 @@ class CancelOrderDialog extends StatefulWidget {
 
 class _CancelOrderDialogState extends State<CancelOrderDialog> {
   var selectedLanguage;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
@@ -27,41 +28,91 @@ class _CancelOrderDialogState extends State<CancelOrderDialog> {
           builder: (context, setState) {
             return Container(
               padding: EdgeInsets.all(width * 0.04),
-              height: isLandScape ? height * 0.75 : height * 0.45,
+              height: isLandScape ? height * 0.75 : height * 0.49,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    "Cancel Order",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: width * 0.045),
+                  Center(
+                    child: Text(
+                      "Cancel Order",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: width * 0.045),
+                    ),
                   ),
-                  const CustomField(title: "", label: "Cancel Reason"),
+                  SizedBox(
+                    height: height * 0.02,
+                  ),
+                  const Text(
+                    "Reason",
+                    style:
+                        TextStyle(fontFamily: "Arial", color: Colors.black45),
+                  ),
                   SizedBox(
                     height: height * 0.005,
                   ),
-                  const CustomField(title: "", label: "Notes"),
-                  const Spacer(),
-                  Custombutton(
-                    title: "Confirm Cancelation ",
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: width * 0.03),
+                    width: double.infinity,
+                    height: constraints.maxWidth > 600
+                        ? height * 0.08
+                        : height * 0.055,
+                    decoration: BoxDecoration(
+                        boxShadow: const [
+                          BoxShadow(
+                              color: Colors.grey,
+                              blurStyle: BlurStyle.outer,
+                              blurRadius: 2)
+                        ],
+                        border: Border.all(
+                            width: 1, color: Colors.grey.withOpacity(0.01)),
+                        borderRadius: BorderRadius.circular(width * 0.05)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Please Select Reason ",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: width * 0.045),
+                        ),
+                        Icon(
+                          Icons.keyboard_arrow_down_sharp,
+                          size: width * 0.1,
+                        ),
+                      ],
+                    ),
                   ),
-                  TextButton(
+                  SizedBox(
+                    height: height * 0.015,
+                  ),
+                  const CustomField(maxLines: 2, title: "Notes", label: ""),
+                  const Spacer(),
+                  Center(
+                    child: Custombutton(
+                      title: "Confirm Cancelation ",
                       onPressed: () {
                         Navigator.pop(context);
+                        Navigator.pop(context);
                       },
-                      child: Text(
-                        "Close",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontFamily: "Web",
-                            fontSize: width * 0.04),
-                      )),
+                    ),
+                  ),
+                  Center(
+                    child: TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Close",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontFamily: "Web",
+                              fontSize: width * 0.04),
+                        )),
+                  ),
                 ],
               ),
             );

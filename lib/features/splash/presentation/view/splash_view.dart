@@ -36,13 +36,12 @@ class _SplashViewState extends State<SplashView> {
   }
 }
 
-void executeNavigation(BuildContext context) async {
-  bool? isSecondTime = await CacheHelper.getData<bool>("isSecondTime");
+void executeNavigation(BuildContext context) {
+  bool? isSecondTime = CacheHelper.getData<bool>("isSecondTime");
 
   Future.delayed(
-    Duration(seconds: 2),
+    const Duration(seconds: 2),
     () {
-      // Navigator.pushReplacementNamed(context, Routes.onBoardingRoute);
       if (isSecondTime == true && isSecondTime != null) {
         return Navigator.pushReplacementNamed(context, Routes.authRoute);
       } else if (isSecondTime == null) {

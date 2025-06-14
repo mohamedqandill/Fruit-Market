@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomField extends StatelessWidget {
-  const CustomField({required this.title, required this.label, super.key});
+  const CustomField(
+      {required this.title, required this.label, super.key, this.maxLines = 1});
+
   final String label;
   final String title;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +46,13 @@ class CustomField extends StatelessWidget {
             ),
             SizedBox(height: height * 0.008),
             TextFormField(
+              maxLines: maxLines,
               decoration: InputDecoration(
                 labelText: label,
                 labelStyle: const TextStyle(fontFamily: "Arial"),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(width * 0.5),
+                  borderRadius: BorderRadius.circular(
+                      maxLines == 1 ? width * 0.5 : width * 0.05),
                   borderSide: BorderSide(color: Colors.grey.withOpacity(0.2)),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/widgets/custom_container_title.dart';
 
+import '../../../../../core/routes_manager/routes.dart';
 import '../../../../../core/widgets/custom_container.dart';
 import '../../../../../core/widgets/custom_container_content.dart';
 
@@ -56,7 +57,10 @@ class FavouriteBodyScreen extends StatelessWidget {
                               fit: BoxFit.fill,
                             ),
                           )),
-                      onPressed: () {});
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routes.productDetailsRoute);
+                      });
                 },
                 separatorBuilder: (context, index) => SizedBox(
                       height: height * 0.02,

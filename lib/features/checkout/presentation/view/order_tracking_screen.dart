@@ -10,7 +10,7 @@ class OrderTrackingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(title: "Checkout", actions: []),
+      appBar: CustomAppBar(title: "Order Tracking", actions: []),
       body: OrderTrackingViewBody(),
     );
   }

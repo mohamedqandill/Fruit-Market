@@ -10,12 +10,14 @@ class ProductDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(title: "Product Name", actions: [
         Image.asset(
           "assets/images/fav.png",
-          height: height * 0.07,
+          height: isLandScape ? height * 0.3 : height * 0.07,
           color: Colors.black,
         ),
         Icon(

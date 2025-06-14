@@ -109,7 +109,10 @@ class BasketBodyViewPortrait extends StatelessWidget {
                               )
                             ],
                           )),
-                      onPressed: () {});
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, Routes.productDetailsRoute);
+                      });
                 },
                 separatorBuilder: (context, index) => SizedBox(
                       height: height * 0.02,

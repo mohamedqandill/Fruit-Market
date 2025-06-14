@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_adaptive_ui/core/widgets/custom_container.dart';
+
+import '../routes_manager/routes.dart';
+import 'custom_container_title.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key, required this.onTap});
@@ -27,6 +31,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var height = MediaQuery.sizeOf(context).height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -73,14 +78,119 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
             );
           },
           suggestionsBuilder: (context, controller) {
-            return List<ListTile>.generate(
-              5,
+            return List<CustomContainer>.generate(
+              3,
               (index) {
-                return ListTile(
-                  leading: const Icon(Icons.person),
-                  title: Text("Result $index"),
-                  onTap: () {
-                    _searchController.closeView("Result $index");
+                return CustomContainer(
+                  widget: Expanded(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(top: height * 0.008),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const CustomContainerTitle(
+                                title: "Seller name",
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset("assets/images/delivIcon.png"),
+                                  Text(
+                                    "  Delivery Charges : 0.5 KD",
+                                    style: TextStyle(
+                                        color: Colors.black38,
+                                        fontFamily: "Web",
+                                        fontSize: width * 0.035),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: const BoxDecoration(
+                                          color: Colors.grey,
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      SizedBox(width: width * 0.02),
+                                      Text(
+                                        "Open",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.green),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.05,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 5,
+                                        height: 5,
+                                        decoration: const BoxDecoration(
+                                          color: Colors.grey,
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      SizedBox(width: width * 0.02),
+                                      Text(
+                                        "Pizza",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.blueAccent),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: width * 0.19,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        const Spacer(),
+                        Padding(
+                          padding: EdgeInsets.only(right: width * 0.03),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(top: height * 0.02),
+                                child: Text("4.5",
+                                    style: TextStyle(
+                                        fontSize: width * 0.035,
+                                        color: Colors.grey)),
+                              ),
+                              const Spacer(),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: height * 0.01),
+                                child: Row(
+                                  children: [
+                                    Text("2.5KM",
+                                        style: TextStyle(
+                                            fontSize: width * 0.035,
+                                            color: Colors.grey)),
+                                    Image.asset("assets/images/Path 218.png")
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.sellerRoute);
                   },
                 );
               },
