@@ -13,15 +13,20 @@ class BasketBodyViewLandScape extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: width * 0.03, vertical: width * 0.01),
+          horizontal: width * 0.01, vertical: width * 0.01),
       child: SingleChildScrollView(
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: height * 0.52,
+              width: width * 0.58,
+              height: height * 0.6,
               child: ListView.separated(
+                  scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     return CustomContainer(
                         image: "assets/images/Frame 2865.png",
@@ -32,7 +37,7 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                 Text("12.00 KD",
                                     style: TextStyle(
                                         color: Colors.black26,
-                                        fontSize: width * 0.035)),
+                                        fontSize: width * 0.025)),
                                 SizedBox(
                                   width: width * 0.025,
                                 ),
@@ -41,12 +46,12 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.black26,
                                       decoration: TextDecoration.lineThrough,
-                                      fontSize: width * 0.035),
+                                      fontSize: width * 0.025),
                                 ),
                               ],
                             ),
                             thirdInRow: Container(
-                              width: width * 0.27,
+                              width: width * 0.17,
                               height: height * 0.1,
                               decoration: BoxDecoration(
                                 borderRadius:
@@ -54,11 +59,13 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                 color: const Color(0xffDF958F),
                               ),
                               child: Center(
-                                  child: Text(
-                                "Up to 10% Off",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: width * 0.035),
+                                  child: FittedBox(
+                                child: Text(
+                                  "Up to 10% Off",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: width * 0.025),
+                                ),
                               )),
                             ),
                             rightItem: Column(
@@ -79,7 +86,7 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                       right: width * 0.02,
                                       bottom: width * 0.01),
                                   child: Container(
-                                    width: width * 0.3,
+                                    width: width * 0.14,
                                     height: height * 0.1,
                                     decoration: BoxDecoration(
                                         border: Border.all(
@@ -94,18 +101,18 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                       children: [
                                         Icon(
                                           Icons.remove,
-                                          size: width * 0.048,
+                                          size: width * 0.018,
                                         ),
                                         Text(
                                           "1",
                                           style: TextStyle(
                                             fontFamily: "Web",
-                                            fontSize: width * 0.038,
+                                            fontSize: width * 0.018,
                                           ),
                                         ),
                                         Icon(
                                           Icons.add,
-                                          size: width * 0.048,
+                                          size: width * 0.018,
                                         )
                                       ],
                                     ),
@@ -113,37 +120,23 @@ class BasketBodyViewLandScape extends StatelessWidget {
                                 )
                               ],
                             )),
-                        onPressed: () {});
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, Routes.productDetailsRoute);
+                        });
                   },
                   separatorBuilder: (context, index) => SizedBox(
                         height: height * 0.02,
                       ),
-                  itemCount: 3),
+                  itemCount: 4),
             ),
+            const Spacer(),
             SizedBox(
-              height: height * 0.8,
+              width: width * 0.37,
+              height: height * 0.57,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: List.generate(
-                      50,
-                      (index) {
-                        return Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(right: width * 0.0035),
-                            child: Container(
-                              width: width * 0.001,
-                              height: height * 0.002,
-                              color: Colors.black26,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: height * 0.02,
-                  ),
                   const CustomBasketText(
                     title: "Subtotal",
                     price: "36.00 ",
@@ -170,6 +163,8 @@ class BasketBodyViewLandScape extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(bottom: height * 0.01),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,40 +172,43 @@ class BasketBodyViewLandScape extends StatelessWidget {
                             Text("4 Items in cart",
                                 style: TextStyle(
                                     color: Colors.black45,
-                                    fontSize: width * 0.037,
+                                    fontSize: width * 0.027,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: "Web")),
                             Text("37.50 KD",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: width * 0.037,
+                                    fontSize: width * 0.027,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: "Web"))
                           ],
                         ),
-                        const Spacer(),
-                        ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: primaryColor.withOpacity(0.77),
-                                fixedSize: Size(width * 0.53, height * 0.03)),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                  context, Routes.checkoutRoute);
-                            },
-                            child: FittedBox(
-                              child: Text(
-                                "Proceed To Checkout",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: width * 0.038),
-                              ),
-                            ))
+                        // const Spacer(),
+                        Expanded(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      primaryColor.withOpacity(0.77),
+                                  fixedSize: Size(width * 0.16, height * 0.04)),
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, Routes.checkoutRoute);
+                              },
+                              child: FittedBox(
+                                child: Text(
+                                  "Proceed To Checkout",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: width * 0.016),
+                                ),
+                              )),
+                        )
                       ],
                     ),
                   )
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

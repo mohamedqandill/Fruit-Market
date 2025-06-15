@@ -43,7 +43,9 @@ class MyOrderScreen extends StatelessWidget {
                                   "9 Sep",
                                   style: TextStyle(
                                       color: Colors.black45,
-                                      fontSize: width * 0.04,
+                                      fontSize: isLandScape
+                                          ? width * 0.03
+                                          : width * 0.04,
                                       fontFamily: "Web"),
                                 ),
                                 SizedBox(width: width * 0.02),
@@ -59,7 +61,9 @@ class MyOrderScreen extends StatelessWidget {
                                 Text("4 Items",
                                     style: TextStyle(
                                         color: Colors.black45,
-                                        fontSize: width * 0.04,
+                                        fontSize: isLandScape
+                                            ? width * 0.03
+                                            : width * 0.04,
                                         fontFamily: "Web"))
                               ],
                             ),
@@ -69,12 +73,16 @@ class MyOrderScreen extends StatelessWidget {
                                   Text("Status:  ",
                                       style: TextStyle(
                                           color: Colors.black45,
-                                          fontSize: width * 0.035,
+                                          fontSize: isLandScape
+                                              ? width * 0.03
+                                              : width * 0.035,
                                           fontFamily: "Web")),
                                   Text("Finished",
                                       style: TextStyle(
                                           color: colors[index],
-                                          fontSize: width * 0.035,
+                                          fontSize: isLandScape
+                                              ? width * 0.03
+                                              : width * 0.035,
                                           fontFamily: "Web"))
                                 ],
                               ),
@@ -82,7 +90,8 @@ class MyOrderScreen extends StatelessWidget {
                             rightItem: Padding(
                               padding: EdgeInsets.only(right: width * 0.04),
                               child: Container(
-                                width: width * 0.158,
+                                width:
+                                    isLandScape ? width * 0.12 : width * 0.158,
                                 height: isLandScape
                                     ? height * 0.24
                                     : height * 0.074,
@@ -118,10 +127,10 @@ List<String> images = [
   "assets/images/Frame 2875.png",
 ];
 List<Color> colors = [
-  Color(0xffFEC500),
-  Color(0xff00BB1A),
-  Color(0xffFF4A4A),
-  Color(0xff264493),
-  Color(0xffCD28E8),
-  Color(0xff28B0E8),
+  const Color(0xffFEC500),
+  const Color(0xff00BB1A),
+  const Color(0xffFF4A4A),
+  const Color(0xff264493),
+  const Color(0xffCD28E8),
+  const Color(0xff28B0E8),
 ];

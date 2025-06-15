@@ -26,7 +26,7 @@ class CustomAuthContainer extends StatelessWidget {
     return Center(
       child: Container(
         width: width * widthFraction,
-        height: isLandScape ? height * 0.075 : height * heightFraction,
+        height: isLandScape ? height * 0.095 : height * heightFraction,
         decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.all(Radius.circular(width * 0.5)),

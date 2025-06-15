@@ -36,7 +36,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                 Text("Coupon Code",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: width * 0.048,
+                        fontSize: isLandScape ? width * 0.035 : width * 0.048,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Sogeo UI")),
                 SizedBox(
@@ -58,7 +58,8 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                           "Do You Have any Coupon Code?",
                           style: TextStyle(
                               color: Colors.black54,
-                              fontSize: width * 0.045,
+                              fontSize:
+                                  isLandScape ? width * 0.035 : width * 0.045,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Web"),
                         ),
@@ -87,7 +88,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                 Text("Order Details",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: width * 0.048,
+                        fontSize: isLandScape ? width * 0.035 : width * 0.048,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Sogeo UI")),
                 SizedBox(
@@ -102,7 +103,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Web",
-                          fontSize: width * 0.04),
+                          fontSize: isLandScape ? width * 0.035 : width * 0.04),
                     )),
                 SizedBox(
                   height: height * 0.008,
@@ -116,7 +117,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontFamily: "Web",
-                          fontSize: width * 0.04),
+                          fontSize: isLandScape ? width * 0.035 : width * 0.04),
                     )),
                 SizedBox(
                   height: height * 0.008,
@@ -139,7 +140,7 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                 Text("Payment",
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: width * 0.048,
+                        fontSize: isLandScape ? width * 0.035 : width * 0.048,
                         fontWeight: FontWeight.bold,
                         fontFamily: "Sogeo UI")),
                 SizedBox(
@@ -169,7 +170,9 @@ class _PaymentViewBodyState extends State<PaymentViewBody> {
                                 Text(string[index],
                                     style: TextStyle(
                                         color: Colors.black87,
-                                        fontSize: width * 0.045,
+                                        fontSize: isLandScape
+                                            ? width * 0.035
+                                            : width * 0.045,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: "Web"))
                               ]),

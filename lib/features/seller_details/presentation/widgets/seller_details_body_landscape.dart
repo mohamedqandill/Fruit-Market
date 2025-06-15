@@ -75,7 +75,7 @@ class SellerDetailsBodyLandScape extends StatelessWidget {
                 ),
                 rightItem: Padding(
                   padding: EdgeInsets.only(
-                      bottom: width * 0.15, right: width * 0.02),
+                      bottom: width * 0.12, right: width * 0.02),
                   child: Image.asset(
                     "assets/images/Path 144.png",
                     // width: width * 0.09,
@@ -178,7 +178,7 @@ class SellerDetailsBodyLandScape extends StatelessWidget {
                               fit: BoxFit.fill,
                               "assets/images/cont3.png",
                               height: height * 0.16,
-                              width: width * 0.15,
+                              width: width * 0.12,
                             ),
                           ),
                         ),

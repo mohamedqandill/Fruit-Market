@@ -22,7 +22,7 @@ class ProductDetailsScreen extends StatelessWidget {
         ),
         Icon(
           Icons.ios_share_outlined,
-          size: width * 0.07,
+          size: isLandScape ? width * 0.05 : width * 0.07,
         ),
         SizedBox(
           width: width * 0.02,

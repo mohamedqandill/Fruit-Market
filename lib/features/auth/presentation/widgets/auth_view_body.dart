@@ -27,7 +27,7 @@ class AuthViewBody extends StatelessWidget {
             ),
             SizedBox(height: isLandScape ? height * 0.002 : height * 0.02),
             SizedBox(
-              height: isLandScape ? height * 0.38 : height * 0.3,
+              height: isLandScape ? height * 0.43 : height * 0.3,
               child: ListView.separated(
                 separatorBuilder: (context, index) => SizedBox(
                     height: isLandScape ? height * 0.03 : height * 0.02),

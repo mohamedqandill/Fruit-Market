@@ -33,27 +33,33 @@ class ContactUsScreenLandScape extends StatelessWidget {
                   width: width * 0.9,
                   padding: EdgeInsets.symmetric(
                       horizontal: shortSide >= 900 ? width * 0.2 : 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Message",
-                        style: TextStyle(
-                            fontFamily: "Arial", color: Colors.black45),
-                      ),
-                      SizedBox(height: height * 0.008),
-                      TextFormField(
-                        maxLines: 4,
-                        decoration: InputDecoration(
-                          labelStyle: const TextStyle(fontFamily: "Arial"),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(width * 0.1),
-                            borderSide:
-                                BorderSide(color: Colors.grey.withOpacity(0.2)),
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Message",
+                          style: TextStyle(
+                              fontFamily: "Arial", color: Colors.black45),
+                        ),
+                        SizedBox(height: height * 0.008),
+                        SizedBox(
+                          width: width * 0.6,
+                          child: TextFormField(
+                            maxLines: 3,
+                            decoration: InputDecoration(
+                              labelStyle: const TextStyle(fontFamily: "Arial"),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.circular(width * 0.1),
+                                borderSide: BorderSide(
+                                    color: Colors.grey.withOpacity(0.2)),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

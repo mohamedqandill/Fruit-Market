@@ -25,8 +25,9 @@ class _LanguageDialogState extends State<LanguageDialog> {
         child: StatefulBuilder(
           builder: (context, setState) {
             return Container(
-              padding: EdgeInsets.all(width * 0.04),
-              height: isLandScape ? height * 0.75 : height * 0.35,
+              padding:
+                  EdgeInsets.all(isLandScape ? width * 0.02 : width * 0.04),
+              height: isLandScape ? height * 0.99 : height * 0.35,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

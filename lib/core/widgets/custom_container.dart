@@ -41,12 +41,13 @@ class CustomContainer extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(width * 0.02),
+                  padding: EdgeInsets.all(
+                      isLandScape ? width * 0.004 : width * 0.02),
                   child: Image.asset(
                     image,
                     fit: BoxFit.fill,
                     height: isLandScape ? height * 0.5 : height * 0.092,
-                    width: width * 0.189,
+                    width: isLandScape ? width * 0.14 : width * 0.189,
                   ),
                 ),
                 widget

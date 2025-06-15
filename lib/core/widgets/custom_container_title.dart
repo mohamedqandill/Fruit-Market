@@ -6,12 +6,14 @@ class CustomContainerTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Text(
       title,
       style: TextStyle(
           color: Colors.black,
-          fontSize: width * 0.043,
+          fontSize: isLandScape ? width * 0.03 : width * 0.043,
           fontWeight: FontWeight.bold,
           fontFamily: "Sogeo UI"),
     );

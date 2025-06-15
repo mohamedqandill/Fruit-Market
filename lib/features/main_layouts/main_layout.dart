@@ -66,7 +66,7 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
             ),
             child: SalomonBottomBar(
               itemPadding: EdgeInsets.symmetric(
-                  horizontal: isLandScape ? width * 0.01 : width * 0.015),
+                  horizontal: isLandScape ? width * 0.018 : width * 0.015),
               unselectedItemColor: Colors.white,
               currentIndex: currentIndex,
               onTap: (index) {
@@ -84,9 +84,10 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 0 ? true : false,
                     image: "assets/images/home.png",
-                    width: isLandScape ? width * 0.04 : width * 0.07,
+                    width: isLandScape ? width * 0.04 : width * 0.05,
                   ),
-                  title: const CustomText(
+                  title: CustomText(
+                    isLandScape: isLandScape ? true : false,
                     text: 'Home',
                   ),
                 ),
@@ -95,10 +96,11 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                 SalomonBottomBarItem(
                   icon: Icon(
                     Icons.format_list_numbered_rounded,
-                    size: h * 0.049,
+                    size: isLandScape ? h * 0.11 : h * 0.049,
                     color: currentIndex == 1 ? Colors.black : Colors.white,
                   ),
-                  title: const CustomText(
+                  title: CustomText(
+                    isLandScape: isLandScape ? true : false,
                     text: 'Orders',
                   ),
                 ),
@@ -108,9 +110,10 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 2 ? true : false,
                     image: "assets/images/basket.png",
-                    width: isLandScape ? width * 0.04 : width * 0.08,
+                    width: isLandScape ? width * 0.04 : width * 0.05,
                   ),
-                  title: const CustomText(
+                  title: CustomText(
+                    isLandScape: isLandScape ? true : false,
                     text: 'Basket',
                   ),
                 ),
@@ -120,9 +123,10 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 3 ? true : false,
                     image: "assets/images/favourite.png",
-                    width: isLandScape ? width * 0.04 : width * 0.07,
+                    width: isLandScape ? width * 0.04 : width * 0.05,
                   ),
-                  title: const CustomText(
+                  title: CustomText(
+                    isLandScape: isLandScape ? true : false,
                     text: 'Favourite',
                   ),
                 ),
@@ -132,9 +136,10 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
                   icon: CustomImage(
                     isSelected: currentIndex == 4 ? true : false,
                     image: "assets/images/more.png",
-                    width: width * 0.07,
+                    width: width * 0.05,
                   ),
-                  title: const CustomText(
+                  title: CustomText(
+                    isLandScape: isLandScape ? true : false,
                     text: 'More',
                   ),
                 ),
@@ -148,15 +153,16 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
 }
 
 class CustomText extends StatelessWidget {
-  const CustomText({required this.text, super.key});
+  const CustomText({required this.text, super.key, required this.isLandScape});
   final String text;
+  final bool isLandScape;
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).height;
     return Text(text,
         style: TextStyle(
-            fontSize: width * 0.015,
+            fontSize: isLandScape ? width * 0.05 : width * 0.015,
             color: Colors.black,
             fontFamily: "Segoe UI"));
   }
@@ -176,7 +182,7 @@ class CustomImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       image,
-      // width: width,
+      // width: ,
       color: isSelected ? Colors.black : Colors.white,
     );
   }

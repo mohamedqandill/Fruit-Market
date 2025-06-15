@@ -31,7 +31,9 @@ class FavouriteBodyScreen extends StatelessWidget {
                               Text("12.00 KD",
                                   style: TextStyle(
                                       color: Colors.black26,
-                                      fontSize: width * 0.035)),
+                                      fontSize: isLandScape
+                                          ? width * 0.03
+                                          : width * 0.035)),
                               SizedBox(
                                 width: width * 0.025,
                               ),
@@ -40,7 +42,9 @@ class FavouriteBodyScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.black26,
                                     decoration: TextDecoration.lineThrough,
-                                    fontSize: width * 0.035),
+                                    fontSize: isLandScape
+                                        ? width * 0.03
+                                        : width * 0.035),
                               ),
                             ],
                           ),

@@ -40,6 +40,8 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return SingleChildScrollView(
       child: Padding(
@@ -50,7 +52,7 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: height * 0.25,
+                  height: height * 0.33,
                   child: PageView(
                     controller: pageController,
                     children: [
@@ -102,10 +104,13 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                   child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return CustomFruitContainer(
-                          width: width * 0.2,
-                          height: height * 0.4,
-                          image: images[index],
+                        return Padding(
+                          padding: EdgeInsets.only(left: width * 0.05),
+                          child: CustomFruitContainer(
+                            width: width * 0.15,
+                            height: height * 0.4,
+                            image: images[index],
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) {
@@ -119,7 +124,7 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                   leftTitle: "Sellers",
                   rightTitle: Text("Show all",
                       style: TextStyle(
-                          color: Color(0xff235C95),
+                          color: const Color(0xff235C95),
                           fontSize: width * 0.028,
                           fontFamily: "Arial")),
                 ),
@@ -157,7 +162,9 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                                           style: TextStyle(
                                               color: Colors.black38,
                                               fontFamily: "Web",
-                                              fontSize: width * 0.035),
+                                              fontSize: isLandScape
+                                                  ? width * 0.03
+                                                  : width * 0.035),
                                         ),
                                       ],
                                     ),
@@ -177,7 +184,9 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                                             Text(
                                               "Open",
                                               style: TextStyle(
-                                                  fontSize: width * 0.035,
+                                                  fontSize: isLandScape
+                                                      ? width * 0.03
+                                                      : width * 0.035,
                                                   color: Colors.green),
                                             ),
                                           ],
@@ -199,7 +208,9 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                                             Text(
                                               "Pizza",
                                               style: TextStyle(
-                                                  fontSize: width * 0.035,
+                                                  fontSize: isLandScape
+                                                      ? width * 0.03
+                                                      : width * 0.035,
                                                   color: Colors.blueAccent),
                                             ),
                                           ],
@@ -224,7 +235,9 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                                           EdgeInsets.only(top: height * 0.02),
                                       child: Text("4.5",
                                           style: TextStyle(
-                                              fontSize: width * 0.035,
+                                              fontSize: isLandScape
+                                                  ? width * 0.03
+                                                  : width * 0.035,
                                               color: Colors.grey)),
                                     ),
                                     const Spacer(),
@@ -235,7 +248,9 @@ class _HomeScreenBodyLandscapeState extends State<HomeScreenBodyLandscape> {
                                         children: [
                                           Text("2.5KM",
                                               style: TextStyle(
-                                                  fontSize: width * 0.035,
+                                                  fontSize: isLandScape
+                                                      ? width * 0.03
+                                                      : width * 0.035,
                                                   color: Colors.grey)),
                                           Image.asset(
                                               "assets/images/Path 218.png")

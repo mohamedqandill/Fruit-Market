@@ -70,9 +70,11 @@ class _FiltergState extends State<FilterDialog> {
                           ),
                           Container(
                             width: double.infinity,
-                            height: constraints.maxWidth > 600
-                                ? height * 0.08
-                                : height * 0.2,
+                            height: isLandScape
+                                ? height * 0.2
+                                : constraints.maxWidth > 600
+                                    ? height * 0.08
+                                    : height * 0.2,
                             decoration: BoxDecoration(
                                 boxShadow: const [
                                   BoxShadow(

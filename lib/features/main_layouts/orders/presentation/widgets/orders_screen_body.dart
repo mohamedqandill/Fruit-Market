@@ -36,7 +36,8 @@ class OrdersScreenBody extends StatelessWidget {
                               "9 Sep",
                               style: TextStyle(
                                   color: Colors.black45,
-                                  fontSize: width * 0.04,
+                                  fontSize:
+                                      isLandScape ? width * 0.03 : width * 0.04,
                                   fontFamily: "Web"),
                             ),
                             SizedBox(width: width * 0.02),
@@ -52,7 +53,9 @@ class OrdersScreenBody extends StatelessWidget {
                             Text("4 Items",
                                 style: TextStyle(
                                     color: Colors.black45,
-                                    fontSize: width * 0.04,
+                                    fontSize: isLandScape
+                                        ? width * 0.03
+                                        : width * 0.04,
                                     fontFamily: "Web"))
                           ],
                         ),
@@ -62,12 +65,16 @@ class OrdersScreenBody extends StatelessWidget {
                               Text("Status:  ",
                                   style: TextStyle(
                                       color: Colors.black45,
-                                      fontSize: width * 0.035,
+                                      fontSize: isLandScape
+                                          ? width * 0.03
+                                          : width * 0.035,
                                       fontFamily: "Web")),
                               Text("Finished",
                                   style: TextStyle(
                                       color: colors[index],
-                                      fontSize: width * 0.035,
+                                      fontSize: isLandScape
+                                          ? width * 0.03
+                                          : width * 0.035,
                                       fontFamily: "Web"))
                             ],
                           ),
@@ -75,7 +82,7 @@ class OrdersScreenBody extends StatelessWidget {
                         rightItem: Padding(
                           padding: EdgeInsets.only(right: width * 0.04),
                           child: Container(
-                            width: width * 0.158,
+                            width: isLandScape ? width * 0.12 : width * 0.158,
                             height: isLandScape ? height * 0.2 : height * 0.074,
                             decoration: BoxDecoration(
                                 color: colors[index],

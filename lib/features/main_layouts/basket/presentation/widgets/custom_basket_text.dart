@@ -16,6 +16,8 @@ class CustomBasketText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
+    var isLandScape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,7 +26,7 @@ class CustomBasketText extends StatelessWidget {
           title,
           style: TextStyle(
               color: isBold ? Colors.black : Colors.black54,
-              fontSize: width * 0.04,
+              fontSize: isLandScape ? width * 0.03 : width * 0.04,
               fontWeight: FontWeight.bold,
               fontFamily: "Web"),
         ),
@@ -33,13 +35,13 @@ class CustomBasketText extends StatelessWidget {
             Text(price,
                 style: TextStyle(
                     color: Colors.black87,
-                    fontSize: width * 0.04,
+                    fontSize: isLandScape ? width * 0.03 : width * 0.04,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Web")),
             Text(currency,
                 style: TextStyle(
                     color: Colors.black54,
-                    fontSize: width * 0.037,
+                    fontSize: isLandScape ? width * 0.03 : width * 0.037,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Web"))
           ],

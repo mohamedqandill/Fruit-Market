@@ -12,7 +12,7 @@ class DeliveryAddressViewBody extends StatelessWidget {
     var isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;
     return SizedBox(
-      height: height * 0.52,
+      height: height * 0.55,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -20,7 +20,7 @@ class DeliveryAddressViewBody extends StatelessWidget {
             Text("Select Delivery Address",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: width * 0.048,
+                    fontSize: isLandScape ? width * 0.035 : width * 0.048,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Sogeo UI")),
             SizedBox(
@@ -47,7 +47,7 @@ class DeliveryAddressViewBody extends StatelessWidget {
               alignment: Alignment.topCenter,
               padding: EdgeInsets.symmetric(horizontal: width * 0.025),
               width: width * 0.9,
-              height: isLandScape ? height * 0.41 : height * 0.19,
+              height: isLandScape ? height * 0.44 : height * 0.19,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(width * 0.04),
                   border: Border.all(width: 1, color: Colors.black26)),
@@ -67,7 +67,8 @@ class DeliveryAddressViewBody extends StatelessWidget {
                             "Address 1",
                             style: TextStyle(
                                 color: Colors.black54,
-                                fontSize: width * 0.045,
+                                fontSize:
+                                    isLandScape ? width * 0.035 : width * 0.045,
                                 fontWeight: FontWeight.bold,
                                 fontFamily: "Web"),
                           ),
@@ -84,14 +85,14 @@ class DeliveryAddressViewBody extends StatelessWidget {
                     "John Doe",
                     style: TextStyle(
                         fontFamily: "Web",
-                        fontSize: width * 0.04,
+                        fontSize: isLandScape ? width * 0.035 : width * 0.04,
                         color: Colors.black54),
                   ),
                   Text(
                     "+000-11-1234567",
                     style: TextStyle(
                         fontFamily: "Web",
-                        fontSize: width * 0.04,
+                        fontSize: isLandScape ? width * 0.035 : width * 0.04,
                         color: Colors.black54),
                   ),
                   Expanded(
@@ -99,7 +100,7 @@ class DeliveryAddressViewBody extends StatelessWidget {
                       """ Room # 1 - Ground Floor, Al Najoum Building, 24 B Street, Dubai - United Arab Emirates""",
                       style: TextStyle(
                           fontFamily: "Web",
-                          fontSize: width * 0.04,
+                          fontSize: isLandScape ? width * 0.035 : width * 0.04,
                           color: Colors.black54),
                     ),
                   ),
