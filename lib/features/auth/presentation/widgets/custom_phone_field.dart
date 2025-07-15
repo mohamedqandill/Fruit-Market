@@ -1,8 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 class CustomPhoneField extends StatelessWidget {
-  const CustomPhoneField({super.key});
+  const CustomPhoneField(
+      {super.key, this.textEditingController, this.validator});
+  final TextEditingController? textEditingController;
+  final FutureOr<String?> Function(PhoneNumber?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +48,8 @@ class CustomPhoneField extends StatelessWidget {
             ),
             SizedBox(height: height * 0.008),
             IntlPhoneField(
+              validator: validator,
+              controller: textEditingController,
               decoration: InputDecoration(
                 labelText: 'Mobile Number',
                 border: OutlineInputBorder(

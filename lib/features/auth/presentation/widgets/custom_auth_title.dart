@@ -18,7 +18,7 @@ class CustomAuthTitle extends StatelessWidget {
           height: isLandScape ? height * 0.06 : height * 0.08,
         ),
         SizedBox(
-          height: height * 0.055,
+          height: height * 0.025,
         ),
         Center(
             child: Text(

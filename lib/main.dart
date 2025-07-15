@@ -1,19 +1,37 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_adaptive_ui/core/local_storage_service/prefs.dart';
+import 'package:responsive_adaptive_ui/core/observer/observer.dart';
 
 import 'core/cache/cache_helper.dart';
 import 'core/routes_manager/route_generator.dart';
 import 'core/routes_manager/routes.dart';
+import 'di.dart';
 import 'features/splash/presentation/view/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  Bloc.observer = MyBlocObserver();
+  configureDependencies();
+  SharedPrefs prefs = SharedPrefs();
+  await prefs.init();
+  bool? isSavedToken;
+  var token = prefs.getString("token");
+  if (token != null) {
+    isSavedToken = true;
+  } else {
+    isSavedToken = false;
+  }
 
-  runApp(const MyApp());
+  runApp(MyApp(
+    isSaved: isSavedToken,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.isSaved});
+  final bool isSaved;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +41,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.splashRoute,
+      initialRoute: isSaved ? Routes.mainLayoutRoute : Routes.splashRoute,
       home: const SplashView(),
     );
   }

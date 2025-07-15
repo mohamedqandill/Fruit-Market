@@ -46,6 +46,17 @@ dependencies:
   step_progress_indicator:
   intl:
   universal_stepper:
+  logger:  # for logging purpose
+  json_annotation:
+  dio:
+  injectable:
+  get_it:
+  bloc: ^9.0.0
+  flutter_bloc:
+  freezed_annotation:
+  pretty_dio_logger:
+
+
 
 
 dev_dependencies:
@@ -59,6 +70,11 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   flutter_launcher_icons:
+  build_runner:
+  json_serializable:
+  freezed:
+  injectable_generator:
+
 
 
 flutter_icons:

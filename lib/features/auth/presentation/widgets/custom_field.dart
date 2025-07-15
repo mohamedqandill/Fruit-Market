@@ -2,11 +2,22 @@ import 'package:flutter/material.dart';
 
 class CustomField extends StatelessWidget {
   const CustomField(
-      {required this.title, required this.label, super.key, this.maxLines = 1});
+      {required this.title,
+      required this.label,
+      super.key,
+      this.maxLines = 1,
+      this.validator,
+      this.textEditingController,
+      this.suffixIcon,
+      this.isObscure = false});
 
   final String label;
   final String title;
   final int maxLines;
+  final bool isObscure;
+  final Widget? suffixIcon;
+  final String? Function(String?)? validator;
+  final TextEditingController? textEditingController;
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +57,12 @@ class CustomField extends StatelessWidget {
             ),
             SizedBox(height: height * 0.008),
             TextFormField(
+              controller: textEditingController,
+              validator: validator,
               maxLines: maxLines,
+              obscureText: isObscure,
               decoration: InputDecoration(
+                suffixIcon: suffixIcon,
                 labelText: label,
                 labelStyle: const TextStyle(fontFamily: "Arial"),
                 border: OutlineInputBorder(
