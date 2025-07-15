@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/constants.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer(
@@ -21,6 +24,7 @@ class CustomContainer extends StatelessWidget {
       onTap: onPressed,
       child: LayoutBuilder(
         builder: (context, constraints) {
+          print("$baseImageUrl$image");
           return Container(
             width: double.infinity,
             height: isLandScape
@@ -41,15 +45,26 @@ class CustomContainer extends StatelessWidget {
             child: Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(
-                      isLandScape ? width * 0.004 : width * 0.02),
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.fill,
-                    height: isLandScape ? height * 0.5 : height * 0.092,
-                    width: isLandScape ? width * 0.14 : width * 0.189,
-                  ),
-                ),
+                    padding: EdgeInsets.all(
+                        isLandScape ? width * 0.004 : width * 0.02),
+                    child: SizedBox(
+                      width: width * 0.22,
+                      height: height * 0.1,
+                      child: CachedNetworkImage(
+                        imageUrl: "$baseImageUrl$image",
+                        imageBuilder: (context, imageProvider) => Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(height * 0.03),
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
+                      ),
+                    )),
                 widget
               ],
             ),

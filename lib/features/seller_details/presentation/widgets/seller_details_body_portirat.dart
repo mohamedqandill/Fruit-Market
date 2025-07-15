@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/widgets/custom_container.dart';
+import 'package:responsive_adaptive_ui/features/main_layouts/home/presentation/widgets/home_screen_body_portirat.dart';
 
 import '../../../../../core/widgets/custom_container_content.dart';
 import '../../../../../core/widgets/custom_fruit_container.dart';
@@ -13,6 +14,10 @@ class SellerDetailsBodyPortirat extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    var sellerData =
+        ModalRoute.of(context)!.settings.arguments as SellerDetails;
+    print(sellerData.sellerImage);
+    print(sellerData.sellerName);
 
     return Padding(
       padding: EdgeInsets.all(width * 0.03),
@@ -20,8 +25,9 @@ class SellerDetailsBodyPortirat extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomContainer(
+            image: sellerData.sellerImage,
             widget: CustomContainerContent(
-              title: "Seller name",
+              title: sellerData.sellerName,
               secondInRow: Text(
                 " Delivery : 40 to 60 Min",
                 style: TextStyle(fontSize: width * 0.035),

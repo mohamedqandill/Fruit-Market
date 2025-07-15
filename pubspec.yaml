@@ -55,6 +55,8 @@ dependencies:
   flutter_bloc:
   freezed_annotation:
   pretty_dio_logger:
+  cached_network_image:
+  skeletonizer:
 
 
 

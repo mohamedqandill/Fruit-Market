@@ -49,7 +49,10 @@ class RouteGenerator {
       case Routes.productDetailsRoute:
         return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
       case Routes.sellerRoute:
-        return MaterialPageRoute(builder: (_) => const SellerDetailsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const SellerDetailsScreen(),
+          settings: settings,
+        );
       case Routes.mainLayoutRoute:
         return MaterialPageRoute(builder: (_) => const MainLayoutScreen());
       case Routes.otpRoute:
