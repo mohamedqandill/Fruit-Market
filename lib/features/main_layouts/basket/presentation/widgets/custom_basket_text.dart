@@ -35,7 +35,7 @@ class CustomBasketText extends StatelessWidget {
             Text(price,
                 style: TextStyle(
                     color: Colors.black87,
-                    fontSize: isLandScape ? width * 0.03 : width * 0.04,
+                    fontSize: isLandScape ? width * 0.03 : width * 0.045,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Web")),
             Text(currency,

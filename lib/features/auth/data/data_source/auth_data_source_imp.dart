@@ -18,7 +18,6 @@ class AuthDataSourceImp implements AuthDataSource {
   Future<RegisterResponse> register(RegisterModel model) async {
     try {
       SharedPrefs prefs = SharedPrefs();
-      await prefs.init();
       final response = await getIt<ApiManager>()
           .postData(endPoints: EndPoints.register, body: {
         "name": model.name,
@@ -29,7 +28,7 @@ class AuthDataSourceImp implements AuthDataSource {
       var data = RegisterResponse.fromJson(response.data);
       if (response.statusCode == 200) {
         if (data.data!.token != null) {
-          var token = await prefs.setString("token", data.data!.token!);
+          await prefs.setString("token", data.data!.token!);
         }
       }
       return data;
@@ -41,10 +40,17 @@ class AuthDataSourceImp implements AuthDataSource {
   @override
   Future<LoginUserModel> login(String email, String password) async {
     try {
+      SharedPrefs prefs = SharedPrefs();
+
       final response = await getIt<ApiManager>().postData(
           endPoints: EndPoints.login,
           body: {"phone_email": email, "password": password});
       var data = LoginUserModel.fromJson(response.data);
+      if (response.statusCode == 200) {
+        if (data.data!.token != null) {
+          await prefs.setString("token", data.data!.token!);
+        }
+      }
       return data;
     } catch (e) {
       throw Exception(e.toString());

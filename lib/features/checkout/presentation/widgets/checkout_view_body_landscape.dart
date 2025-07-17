@@ -67,9 +67,13 @@ class _CheckoutViewBodyLandScapeState extends State<CheckoutViewBodyLandScape> {
               height: height * 0.01,
             ),
             activeSteps == 0
-                ? const DeliveryTimeViewBody()
+                ? DeliveryTimeViewBody(
+                    selectedDateTime: (date) {},
+                  )
                 : activeSteps == 1
-                    ? const DeliveryAddressViewBody()
+                    ? DeliveryAddressViewBody(
+                        selectAddress: (address) {},
+                      )
                     : const PaymentViewBody(),
             Center(
               child: Padding(

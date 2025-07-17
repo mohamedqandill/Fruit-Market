@@ -26,6 +26,7 @@ class _MainAppBarState extends State<MainAppBar> {
 
     return AppBar(
       backgroundColor: Colors.white,
+      scrolledUnderElevation: 0,
       bottom: const PreferredSize(
           preferredSize: Size(double.infinity, 0), child: Divider()),
       leadingWidth: 0,

@@ -11,7 +11,7 @@ class CustomContainer extends StatelessWidget {
       required this.onPressed});
   final Widget widget;
   final VoidCallback onPressed;
-  final String image;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -50,20 +50,24 @@ class CustomContainer extends StatelessWidget {
                     child: SizedBox(
                       width: width * 0.22,
                       height: height * 0.1,
-                      child: CachedNetworkImage(
-                        imageUrl: "$baseImageUrl$image",
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(height * 0.03),
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
+                      child: image != null && image?.toLowerCase() != "null"
+                          ? CachedNetworkImage(
+                              imageUrl: "$baseImageUrl$image",
+                              imageBuilder: (context, imageProvider) =>
+                                  Container(
+                                decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.circular(height * 0.03),
+                                  image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                            )
+                          : const SizedBox(),
                     )),
                 widget
               ],

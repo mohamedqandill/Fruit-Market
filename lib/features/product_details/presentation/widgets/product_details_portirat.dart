@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/constants/constants.dart';
+import 'package:responsive_adaptive_ui/features/seller_details/presentation/widgets/seller_details_body_portirat.dart';
 
 import 'expandable_widget.dart';
 
@@ -24,6 +25,15 @@ class _ProductDetailsBodyPortiratState
   Widget build(BuildContext context) {
     var width = MediaQuery.sizeOf(context).width;
     var height = MediaQuery.sizeOf(context).height;
+    final product =
+        ModalRoute.of(context)!.settings.arguments as ProductDetails;
+    print(product.subUnits.length);
+    Map<String, String> weights = {
+      for (var i in product.subUnits)
+        if (i.subUnitEn != null && i.subPrice != null)
+          i.subUnitEn!: i.subPrice!.toString()
+    };
+
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: width * 0.03, vertical: width * 0.005),
@@ -33,210 +43,162 @@ class _ProductDetailsBodyPortiratState
             print(constraints.maxWidth);
             print(constraints.maxHeight);
           }
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
+
+          return GlowingOverscrollIndicator(
+            color: Colors.transparent,
+            axisDirection: AxisDirection.down,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    height: constraints.maxHeight < 639
-                        ? height * 0.2
-                        : constraints.maxWidth < 383
-                            ? height * 0.171
-                            : constraints.maxWidth >= 600
-                                ? height * 0.22
-                                : height * 0.27,
-                    width: constraints.maxWidth >= 650
-                        ? width * 0.98
-                        : width * 0.98,
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: Image.asset(
-                        "assets/images/image 10.png",
-                        fit: BoxFit.cover,
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: constraints.maxHeight < 639
+                            ? height * 0.2
+                            : constraints.maxWidth < 383
+                                ? height * 0.171
+                                : constraints.maxWidth >= 600
+                                    ? height * 0.22
+                                    : height * 0.27,
+                        width: constraints.maxWidth >= 650
+                            ? width * 0.98
+                            : width * 0.98,
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Image.network(
+                            "$baseImageUrl${product.image}",
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        right: width * 0.04,
+                        top: width * 0.04,
+                        child: Container(
+                            width: width * 0.31,
+                            height: height * 0.031,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border:
+                                    Border.all(width: 1, color: Colors.grey),
+                                borderRadius:
+                                    BorderRadius.circular(width * 0.5)),
+                            child: Center(
+                                child: Text(
+                              "10% Off Discount",
+                              style: TextStyle(
+                                  color: Colors.black38,
+                                  fontFamily: "Web",
+                                  fontSize: width * 0.035),
+                            ))),
+                      ),
+                    ],
                   ),
-                  Positioned(
-                    right: width * 0.04,
-                    top: width * 0.04,
-                    child: Container(
-                        width: width * 0.31,
-                        height: height * 0.031,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(width * 0.5)),
-                        child: Center(
-                            child: Text(
-                          "10% Off Discount",
-                          style: TextStyle(
-                              color: Colors.black38,
-                              fontFamily: "Web",
-                              fontSize: width * 0.035),
-                        ))),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: height * 0.01),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  Padding(
+                    padding: EdgeInsets.only(top: height * 0.01),
+                    child: Row(
                       children: [
-                        Text(
-                          "Category Name",
-                          style: TextStyle(
-                              fontFamily: "Web",
-                              color: primaryColor,
-                              fontSize: width * 0.043,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "Product Name",
-                          style: TextStyle(
-                              fontFamily: "ArialBold",
-                              fontSize: width * 0.05,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Column(
-                      children: [
-                        Text(
-                          "Price",
-                          style: TextStyle(
-                              fontFamily: "Web",
-                              fontSize: width * 0.04,
-                              color: Colors.black26),
-                        ),
-                        Row(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("KD12.00",
-                                style: TextStyle(
-                                    fontFamily: "Web",
-                                    color: Colors.black87,
-                                    fontSize: width * 0.04)),
-                            SizedBox(
-                              width: width * 0.025,
-                            ),
                             Text(
-                              "KD14.00",
+                              product.categoryName,
                               style: TextStyle(
                                   fontFamily: "Web",
-                                  color: Color(0xffDF958F),
-                                  decoration: TextDecoration.lineThrough,
-                                  fontSize: width * 0.04),
+                                  color: primaryColor,
+                                  fontSize: width * 0.043,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              product.productName.length > 20
+                                  ? product.productName.substring(0, 20)
+                                  : product.productName,
+                              style: TextStyle(
+                                  fontFamily: "ArialBold",
+                                  fontSize: width * 0.05,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: height * 0.01),
-                child: Text(
-                  """Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.""",
-                  style: TextStyle(
-                      fontFamily: "Web",
-                      fontSize: width * 0.038,
-                      color: Colors.black54),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: height * 0.015),
-                child: Text(
-                  "Sell Per : Kartoon",
-                  style: TextStyle(
-                      fontFamily: "Web",
-                      fontSize: width * 0.04,
-                      color: Colors.black54),
-                ),
-              ),
-              buildExpandableSection(
-                context: context,
-                title: "Select weight",
-                expanded: weightExpanded,
-                onToggle: () {
-                  setState(() {
-                    weightExpanded = !weightExpanded;
-                    if (weightExpanded) addonExpanded = false;
-                  });
-                },
-                options: {
-                  "50g": "50 Gram - 4.00 KD",
-                  "1kg": "1 Kg - 6.25 KD",
-                  "2kg": "2 Kg - 12.00 KD",
-                },
-                selectedValue: selectedWeight,
-                onChanged: (val) {
-                  setState(() {
-                    selectedWeight = val;
-                  });
-                },
-              ),
-
-              /// Addons Section
-              buildExpandableSection(
-                context: context,
-                title: "Select Addons",
-                expanded: addonExpanded,
-                onToggle: () {
-                  setState(() {
-                    addonExpanded = !addonExpanded;
-                    if (addonExpanded) weightExpanded = false;
-                  });
-                },
-                options: {
-                  "addon1": "50 Gram - 4.00 KD",
-                  "addon2": "1 Kg - 6.25 KD",
-                },
-                selectedValue: selectedAddon,
-                onChanged: (val) {
-                  setState(() {
-                    selectedAddon = val;
-                  });
-                },
-              ),
-
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: primaryColor.withOpacity(0.77),
-                          fixedSize: Size(
-                              width * 0.42,
-                              constraints.maxWidth >= 600
-                                  ? height * 0.045
-                                  : height * 0.03)),
-                      onPressed: () {},
-                      child: Center(
-                        child: Row(
+                        const Spacer(),
+                        Column(
                           children: [
-                            Image.asset(
-                              "assets/images/basket.png",
-                              height: height * 0.21,
-                              width: width * 0.085,
-                            ),
                             Text(
-                              "Add To Cart",
+                              "Price",
                               style: TextStyle(
                                   fontFamily: "Web",
-                                  color: Colors.white,
-                                  fontSize: width * 0.04),
+                                  fontSize: width * 0.04,
+                                  color: Colors.black26),
+                            ),
+                            Row(
+                              children: [
+                                Text("${product.priceAfterDiscount}€",
+                                    style: TextStyle(
+                                        fontFamily: "Web",
+                                        color: Colors.black87,
+                                        fontSize: width * 0.04)),
+                                SizedBox(
+                                  width: width * 0.025,
+                                ),
+                                Text(
+                                  "${product.price}€",
+                                  style: TextStyle(
+                                      fontFamily: "Web",
+                                      color: const Color(0xffDF958F),
+                                      decoration: TextDecoration.lineThrough,
+                                      fontSize: width * 0.04),
+                                ),
+                              ],
                             ),
                           ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: height * 0.01),
+                    child: Text(
+                      product.details,
+                      style: TextStyle(
+                          fontFamily: "Web",
+                          fontSize: width * 0.039,
+                          color: Colors.black54),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: height * 0.015),
+                    child: Text(
+                      "Sell Per : Kartoon",
+                      style: TextStyle(
+                          fontFamily: "Web",
+                          fontSize: width * 0.04,
+                          color: Colors.black54),
+                    ),
+                  ),
+                  weights.isEmpty
+                      ? const SizedBox()
+                      : buildExpandableSection(
+                          context: context,
+                          title: "Select Quantity",
+                          expanded: weightExpanded,
+                          onToggle: () {
+                            setState(() {
+                              weightExpanded = !weightExpanded;
+                              if (weightExpanded) addonExpanded = false;
+                            });
+                          },
+                          options: weights,
+                          selectedValue: selectedWeight,
+                          onChanged: (val) {
+                            setState(() {
+                              selectedWeight = val;
+                            });
+                          },
                         ),
-                      )),
                 ],
-              )
-            ],
+              ),
+            ),
           );
         },
       ),

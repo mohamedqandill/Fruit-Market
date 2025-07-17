@@ -4,7 +4,9 @@ import 'package:intl/intl.dart';
 import '../../../../core/widgets/custom_inline_text.dart';
 
 class DeliveryTimeViewBody extends StatefulWidget {
-  const DeliveryTimeViewBody({super.key});
+  const DeliveryTimeViewBody({super.key, required this.selectedDateTime});
+
+  final Function(String date) selectedDateTime;
 
   @override
   State<DeliveryTimeViewBody> createState() => _DeliveryTimeViewBodyState();
@@ -40,6 +42,8 @@ class _DeliveryTimeViewBodyState extends State<DeliveryTimeViewBody> {
                     onChanged: (value) {
                       setState(() {
                         selectedItem = value;
+                        widget.selectedDateTime(
+                            DateFormat('yyyy-MM-dd').format(DateTime.now()));
                       });
                     },
                   )),
@@ -66,6 +70,8 @@ class _DeliveryTimeViewBodyState extends State<DeliveryTimeViewBody> {
                         onChanged: (value) {
                           setState(() {
                             selectedItem = value;
+                            widget.selectedDateTime(DateFormat('yyyy-MM-dd')
+                                .format(selectedDate ?? DateTime.now()));
                           });
                         },
                       )),
@@ -81,6 +87,8 @@ class _DeliveryTimeViewBodyState extends State<DeliveryTimeViewBody> {
                       rightTitle: InkWell(
                           onTap: () async {
                             selectedDate = await chooseDate(context);
+                            widget.selectedDateTime(DateFormat('yyyy-MM-dd')
+                                .format(selectedDate ?? DateTime.now()));
                             setState(() {});
                           },
                           child: const Icon(Icons.expand_more))),

@@ -2,11 +2,13 @@ import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_adaptive_ui/core/constants/constants.dart';
 import 'package:responsive_adaptive_ui/core/routes_manager/routes.dart';
+import 'package:responsive_adaptive_ui/features/checkout/data/model/make_order_model.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/widgets/checkout_view_body_landscape.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/widgets/delivery_time_view_body.dart';
 import 'package:responsive_adaptive_ui/features/checkout/presentation/widgets/payment_view_body.dart';
 
 import '../../../../core/widgets/customButton.dart';
+import '../../../main_layouts/basket/presentation/widgets/basket_body_portrait.dart';
 import 'delivery_address_view_body.dart';
 
 class CheckoutViewBody extends StatefulWidget {
@@ -18,6 +20,8 @@ class CheckoutViewBody extends StatefulWidget {
 
 class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   int activeSteps = 0;
+  String selectedDate = "";
+  String selectedAddress = "";
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,8 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     var height = MediaQuery.sizeOf(context).height;
     var isLandScape =
         MediaQuery.of(context).orientation == Orientation.landscape;
+    var data = ModalRoute.of(context)?.settings.arguments as OrderedProducts;
+    print(data);
 
     return isLandScape
         ? const CheckoutViewBodyLandScape()
@@ -71,9 +77,19 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                   height: height * 0.01,
                 ),
                 activeSteps == 0
-                    ? const DeliveryTimeViewBody()
+                    ? DeliveryTimeViewBody(
+                        selectedDateTime: (date) {
+                          selectedDate = date;
+                          print(selectedDate);
+                        },
+                      )
                     : activeSteps == 1
-                        ? const DeliveryAddressViewBody()
+                        ? DeliveryAddressViewBody(
+                            selectAddress: (address) {
+                              selectedAddress = address;
+                              print(selectedAddress);
+                            },
+                          )
                         : const PaymentViewBody(),
                 const Spacer(),
                 Center(
@@ -87,15 +103,28 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
                             activeSteps++;
                           });
                         } else {
-                          Navigator.pushNamed(context, Routes.orderTrackRoute);
+                          List<CheckoutOrders> checkoutOrders = [];
+                          for (var i in data.products) {
+                            checkoutOrders.add(CheckoutOrders(
+                                prodId: i.id,
+                                quantity: i.quantity,
+                                price: i.price));
+                          }
+                          MakeOrderModel makeOrderModel = MakeOrderModel(
+                              totalPrice: data.totalPrice,
+                              checkoutOrders: checkoutOrders,
+                              paymentType: "cash_on_delivery",
+                              address: selectedAddress,
+                              orderTime: selectedDate);
+                          Navigator.pushNamed(context, Routes.orderTrackRoute,
+                              arguments: makeOrderModel);
                         }
                       },
                     ),
                   ),
                 ),
               ],
-            ),
-          );
+            ));
   }
 }
 

@@ -26,14 +26,16 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.orderTrackRoute:
-        return MaterialPageRoute(builder: (_) => const OrderTrackingScreen());
+        return MaterialPageRoute(
+            builder: (_) => const OrderTrackingScreen(), settings: settings);
       case Routes.orderErrorRoute:
         return MaterialPageRoute(builder: (_) => const OrderErrorScreen());
       case Routes.orderConfRoute:
         return MaterialPageRoute(
             builder: (_) => const OrderConfirmationScreen());
       case Routes.checkoutRoute:
-        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
+        return MaterialPageRoute(
+            builder: (_) => const CheckoutScreen(), settings: settings);
       case Routes.termsRoute:
         return MaterialPageRoute(builder: (_) => const TermsScreen());
       case Routes.myFavoriteRoute:
@@ -47,7 +49,8 @@ class RouteGenerator {
       case Routes.moreRoute:
         return MaterialPageRoute(builder: (_) => const MoreScreen());
       case Routes.productDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
+        return MaterialPageRoute(
+            builder: (_) => const ProductDetailsScreen(), settings: settings);
       case Routes.sellerRoute:
         return MaterialPageRoute(
           builder: (_) => const SellerDetailsScreen(),

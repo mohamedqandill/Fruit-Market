@@ -14,6 +14,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     var width = MediaQuery.sizeOf(context).width;
 
     return AppBar(
+        scrolledUnderElevation: 0,
+        // forceMaterialTransparency: true,
         backgroundColor: Colors.white,
         bottom: const PreferredSize(
             preferredSize: Size(double.infinity, 0), child: Divider()),

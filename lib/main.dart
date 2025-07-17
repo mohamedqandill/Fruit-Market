@@ -1,13 +1,17 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:responsive_adaptive_ui/core/local_storage_service/prefs.dart';
 import 'package:responsive_adaptive_ui/core/observer/observer.dart';
 
 import 'core/cache/cache_helper.dart';
+import 'core/local_storage_service/hive.dart';
 import 'core/routes_manager/route_generator.dart';
 import 'core/routes_manager/routes.dart';
 import 'di.dart';
-import 'features/splash/presentation/view/splash_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +20,10 @@ void main() async {
   configureDependencies();
   SharedPrefs prefs = SharedPrefs();
   await prefs.init();
+
+  Directory dir = await getApplicationDocumentsDirectory();
+  Hive.init(dir.path);
+  await HiveCart.clearAll();
   bool? isSavedToken;
   var token = prefs.getString("token");
   if (token != null) {
@@ -42,7 +50,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouteGenerator.getRoute,
       initialRoute: isSaved ? Routes.mainLayoutRoute : Routes.splashRoute,
-      home: const SplashView(),
     );
   }
 }

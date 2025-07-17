@@ -44,7 +44,6 @@ class _HomeScreenBodyPortiratState extends State<HomeScreenBodyPortirat> {
           return BlocConsumer<HomeBloc, HomeState>(
             listener: (context, state) {},
             builder: (context, state) {
-              var homeBloc = BlocProvider.of<HomeBloc>(context);
               var vendorInfo = state.vendorsModel?.data?.info;
 
               return Skeletonizer(
@@ -238,6 +237,9 @@ class _HomeScreenBodyPortiratState extends State<HomeScreenBodyPortirat> {
                             onPressed: () {
                               Navigator.pushNamed(context, Routes.sellerRoute,
                                   arguments: SellerDetails(
+                                      vendorId: state.vendorsModel?.data
+                                              ?.info?[index].id ??
+                                          0,
                                       sellerName: state.vendorsModel?.data
                                               ?.info?[index].nameEn ??
                                           "",
@@ -268,8 +270,13 @@ List<String> images = [
 ];
 
 class SellerDetails {
-  String sellerName;
-  String sellerImage;
+  final String sellerName;
+  final String sellerImage;
+  final int vendorId;
 
-  SellerDetails({required this.sellerName, required this.sellerImage});
+  SellerDetails({
+    required this.sellerName,
+    required this.sellerImage,
+    required this.vendorId,
+  });
 }

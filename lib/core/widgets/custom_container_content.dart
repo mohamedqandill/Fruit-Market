@@ -7,11 +7,12 @@ class CustomContainerContent extends StatelessWidget {
       {super.key,
       required this.title,
       required this.secondInRow,
-      required this.thirdInRow,
+      this.thirdInRow,
       required this.rightItem});
+
   final String title;
   final Widget secondInRow;
-  final Widget thirdInRow;
+  final Widget? thirdInRow;
   final Widget rightItem;
 
   @override
@@ -27,9 +28,12 @@ class CustomContainerContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomContainerTitle(title: title),
+                CustomContainerTitle(
+                    title: title.length > 12
+                        ? "${title.substring(0, 12)} ..."
+                        : title),
                 secondInRow,
-                thirdInRow,
+                thirdInRow ?? const SizedBox(),
               ],
             ),
           ),
